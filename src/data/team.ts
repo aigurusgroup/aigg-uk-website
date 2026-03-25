@@ -15,8 +15,8 @@ export const team: TeamMember[] = [
     market: "United Kingdom",
     role: "Strategy & AI Systems",
     focus: "Technology ventures, AI strategy, business acquisition & integration",
-    capability: "Entrepreneur and investor with 17 successful ventures across software, AI, and customer-experience technology. Combines deep operational expertise with cutting-edge AI innovation to drive acquisition strategy, value creation, and platform development across the portfolio.",
-    expertise: ["AI", "Strategy", "Acquisitions", "Private Equity"],
+    capability: "Entrepreneur and investor with 17 successful ventures across software, AI, and customer-experience technology. Combines deep operational expertise with cutting-edge AI innovation to drive acquisition strategy and platform development.",
+    expertise: ["AI", "Strategy", "Acquisitions"],
     initials: "CR",
     isLeadership: true,
   },
@@ -24,9 +24,9 @@ export const team: TeamMember[] = [
     name: "Lee Robinson",
     market: "Australia",
     role: "Strategy & Execution",
-    focus: "Strategy, acquisitions, operational execution, portfolio management",
-    capability: "Operator and strategist focused on identifying, acquiring, and scaling service businesses across the Australian market. Drives independent execution with shared strategic frameworks and disciplined value creation.",
-    expertise: ["Strategy", "Operations", "Acquisitions", "Private Equity"],
+    focus: "Strategy, acquisitions, operational execution",
+    capability: "Operator and strategist focused on identifying, acquiring, and scaling service businesses across the Australian market. Drives independent execution with shared strategic frameworks.",
+    expertise: ["Strategy", "Operations", "Acquisitions"],
     initials: "LR",
     isLeadership: true,
   },
@@ -35,8 +35,8 @@ export const team: TeamMember[] = [
     market: "United Kingdom",
     role: "Technology & Architecture",
     focus: "Enterprise software architecture, AI & business intelligence, data engineering",
-    capability: "Technology expert with over 20 years in software development, enterprise solutions, and technical team leadership. Drives product innovation across AI-driven automation, data engineering, and business intelligence systems that underpin portfolio company value creation.",
-    expertise: ["AI", "Technology", "Data", "Systems"],
+    capability: "Technology expert with over 20 years in software development, enterprise solutions, and technical team leadership. Drives product innovation across AI-driven automation, data engineering, and business intelligence systems.",
+    expertise: ["AI", "Technology", "Data"],
     initials: "GE",
   },
   {
@@ -44,8 +44,8 @@ export const team: TeamMember[] = [
     market: "United Kingdom",
     role: "Finance & Governance",
     focus: "Financial control, due diligence & deal support, treasury & risk management",
-    capability: "Finance executive with 20+ years establishing financial control, governance, and reporting across complex organisations. Leads opportunity assessment, deal execution, and post-acquisition financial integration across the portfolio.",
-    expertise: ["Finance", "Due Diligence", "Governance", "Deal Execution"],
+    capability: "Finance executive with 20+ years establishing financial control, governance, and reporting across complex organisations. Leads opportunity assessment, deal execution, and post-acquisition financial integration.",
+    expertise: ["Finance", "Due Diligence", "Governance"],
     initials: "LB",
   },
   {
@@ -53,12 +53,11 @@ export const team: TeamMember[] = [
     market: "United Kingdom",
     role: "Operations & Investment",
     focus: "Operator-led business scaling, acquisition judgement, multi-model operations",
-    capability: "Operator and investor with 45+ years across construction, property services, and multi-model business operations. Brings deep judgement on acquisitions, portfolio company scaling, and hands-on value creation.",
-    expertise: ["Operations", "Investment", "Scaling", "Portfolio Management"],
+    capability: "Operator and investor with 45+ years across construction, property services, and multi-model business operations. Brings deep judgement on acquisitions and hands-on scaling of portfolio companies.",
+    expertise: ["Operations", "Investment", "Scaling"],
     initials: "MB",
   },
 ];
-
 export interface Article {
   title: string;
   category: string;
@@ -70,23 +69,13 @@ export interface Article {
 
 export const insightCategories = [
   "All",
-  "Private Equity",
   "Acquisition Strategy",
   "AI in Service Businesses",
   "Market Commentary",
   "Operator Thinking",
-  "Value Creation",
 ];
 
 export const articles: Article[] = [
-  {
-    title: "The Private Equity Playbook for AI-Enabled Service Businesses",
-    category: "Private Equity",
-    date: "March 2026",
-    excerpt: "How a disciplined PE approach — combined with AI systems — creates asymmetric value in fragmented service markets.",
-    author: "Chris Robinson",
-    market: "United Kingdom",
-  },
   {
     title: "How AI is Reshaping Professional Services Valuation",
     category: "AI in Service Businesses",
@@ -108,14 +97,6 @@ export const articles: Article[] = [
     category: "Acquisition Strategy",
     date: "February 2026",
     excerpt: "A framework for constructing scalable operating models that deliver margin expansion within 12 months of acquisition completion.",
-    author: "Chris Robinson",
-    market: "United Kingdom",
-  },
-  {
-    title: "Value Creation in Buy-and-Build: Beyond Cost Synergies",
-    category: "Value Creation",
-    date: "February 2026",
-    excerpt: "Why revenue synergies, operational leverage, and AI-driven efficiency gains matter more than traditional cost-cutting in modern PE portfolios.",
     author: "Chris Robinson",
     market: "United Kingdom",
   },
@@ -166,9 +147,7 @@ export const perspectiveArticles = [
     author: "Chris Robinson",
     market: "United Kingdom" as const,
     articles: [
-      { title: "The Private Equity Playbook for AI-Enabled Service Businesses", date: "March 2026", topic: "Private Equity" },
       { title: "Why AI Systems Thinking Will Define the Next Decade of Business", date: "March 2026", topic: "AI in Service Businesses" },
-      { title: "Value Creation in Buy-and-Build: Beyond Cost Synergies", date: "February 2026", topic: "Value Creation" },
       { title: "Building Intelligence Infrastructure: A Framework", date: "February 2026", topic: "Acquisition Strategy" },
       { title: "The Strategic Case for Platform-Level AI", date: "January 2026", topic: "AI in Service Businesses" },
     ],
