@@ -7,7 +7,7 @@ const navLinks = [
   { label: "Platform", href: "/platform" },
   { label: "Insights", href: "/insights" },
   { label: "Perspectives", href: "/perspectives" },
-  { label: "Global Presence", href: "/global" },
+  { label: "Global", href: "/global" },
 ];
 
 const Header = () => {
@@ -19,7 +19,7 @@ const Header = () => {
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
         <Link to="/" className="flex items-center gap-3">
           <span className="font-display font-bold text-lg tracking-tight text-foreground">AIGG</span>
-          <span className="text-[10px] text-muted-foreground tracking-widest uppercase font-medium border-l border-border pl-3">Global Platform</span>
+          <span className="text-[10px] text-muted-foreground tracking-widest uppercase font-medium border-l border-border pl-3">United Kingdom</span>
         </Link>
 
         <div className="hidden lg:flex items-center gap-7">

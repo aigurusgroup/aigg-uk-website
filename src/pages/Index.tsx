@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Brain, Cpu, Zap, Settings, TrendingUp, Layers, BarChart3, Globe, Check } from "lucide-react";
+import { ArrowRight, Globe, Check, Cpu, Settings, Layers, BarChart3 } from "lucide-react";
 
 const Index = () => (
   <Layout>
@@ -10,15 +10,15 @@ const Index = () => (
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-3xl">
           <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-6 animate-fade-in">
-            Intelligence · Systems · Platform
+            Acquire · Operate · Scale
           </p>
 
           <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.08] mb-6 animate-fade-in-up tracking-tight">
-            AI-Enabled Business Transformation, Built for Scale
+            Building AI-Enabled Businesses at Scale
           </h1>
 
           <p className="text-lg text-muted-foreground max-w-2xl mb-10 animate-fade-in-up leading-relaxed" style={{ animationDelay: "0.1s" }}>
-            We develop the intelligence, systems, and operating frameworks that power modern acquisition platforms.
+            We acquire, operate, and scale service businesses using AI, operational discipline, and strategic execution.
           </p>
 
           <div className="flex flex-wrap gap-3 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
@@ -41,51 +41,49 @@ const Index = () => (
       <div className="container mx-auto px-4 lg:px-8">
         <div className="mb-16">
           <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">The AIGG Platform</p>
-          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">
-            A multi-region platform combining AI intelligence and acquisition execution.
+          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight max-w-3xl">
+            A multi-market platform combining acquisition strategy, operational execution, and AI-enabled systems.
           </h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-px bg-border">
           <div className="bg-background p-10">
-            <div className="w-12 h-12 flex items-center justify-center bg-primary/5 border border-border mb-6">
-              <Brain className="text-foreground" size={22} />
-            </div>
-            <h3 className="font-display font-bold text-xl mb-3 tracking-tight">Intelligence Engine</h3>
+            <Globe size={24} className="text-foreground mb-6" />
+            <h3 className="font-display font-bold text-xl mb-2 tracking-tight">United Kingdom</h3>
+            <p className="text-xs tracking-widest uppercase text-muted-foreground mb-4">Core Market</p>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              AI systems, strategic frameworks, and operating models designed to identify, analyse, and optimise business opportunities at scale.
+              Acquisition strategy, AI systems development, and operational scaling across UK service markets.
             </p>
           </div>
           <div className="bg-background p-10">
-            <div className="w-12 h-12 flex items-center justify-center bg-primary/5 border border-border mb-6">
-              <Zap className="text-foreground" size={22} />
-            </div>
-            <h3 className="font-display font-bold text-xl mb-3 tracking-tight">Execution Engine</h3>
+            <Globe size={24} className="text-foreground mb-6" />
+            <h3 className="font-display font-bold text-xl mb-2 tracking-tight">Australia</h3>
+            <p className="text-xs tracking-widest uppercase text-muted-foreground mb-4">Core Market</p>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Acquisitions, scaling playbooks, and operational infrastructure that translate intelligence into measurable business outcomes.
+              Independent execution with shared frameworks, scaling service businesses across the Australian market.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    {/* Intelligence Engine */}
+    {/* What We Do */}
     <section className="py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="mb-16">
-          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Intelligence Engine</p>
-          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">Systems-Level Thinking</h2>
+          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">What We Do</p>
+          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">Acquire. Integrate. Scale.</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-px bg-border">
+        <div className="grid md:grid-cols-3 gap-px bg-border">
           {[
-            { icon: Cpu, title: "AI Systems", desc: "Purpose-built AI models and decision engines for operational intelligence." },
-            { icon: Settings, title: "Automation Frameworks", desc: "End-to-end process automation reducing manual overhead across the value chain." },
-            { icon: Layers, title: "Operating Models", desc: "Scalable organisational frameworks designed for acquisition-driven growth." },
-            { icon: TrendingUp, title: "Margin Expansion", desc: "Data-driven strategies that systematically improve profitability post-acquisition." },
-          ].map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="bg-background p-10">
-              <h3 className="font-display font-semibold text-lg mb-2 tracking-tight">{title}</h3>
+            { step: "01", title: "Acquire Businesses", desc: "Identify and acquire high-potential service businesses with strong fundamentals and growth capacity." },
+            { step: "02", title: "Implement AI & Systems", desc: "Deploy AI-enabled operational systems, automation frameworks, and data-driven decision layers." },
+            { step: "03", title: "Scale Through Integration", desc: "Execute structured integration playbooks that drive margin expansion and sustainable growth." },
+          ].map(({ step, title, desc }) => (
+            <div key={step} className="bg-background p-10">
+              <span className="text-xs font-medium tracking-widest text-muted-foreground">{step}</span>
+              <h3 className="font-display font-semibold text-lg mt-4 mb-2 tracking-tight">{title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
             </div>
           ))}
@@ -93,32 +91,34 @@ const Index = () => (
       </div>
     </section>
 
-    {/* AIGG Operating System™ */}
-    <section className="py-24 bg-navy text-primary-foreground">
+    {/* UK Market Focus */}
+    <section className="py-24 bg-slate-section">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-primary-foreground/50 mb-3">AIGG Operating System™</p>
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">UK Market Focus</p>
             <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-6">
-              The Infrastructure Layer
+              Identifying, Acquiring, and Scaling Service Businesses
             </h2>
-            <p className="text-primary-foreground/60 leading-relaxed">
-              A proprietary operating system integrating AI, automation, and performance optimisation into a unified platform that sits across every portfolio operation.
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              Within the UK, AIGG focuses on identifying, acquiring, and scaling service businesses using its platform model. We combine local market expertise with shared AI frameworks and operational discipline.
             </p>
+            <Link to="/platform">
+              <Button variant="premium-outline" size="lg">
+                Learn More <ArrowRight className="ml-1" size={14} />
+              </Button>
+            </Link>
           </div>
-
-          <div className="space-y-5">
+          <div className="space-y-4">
             {[
-              "AI Integration Layer",
-              "Process Automation",
-              "Scalable Infrastructure",
-              "Performance Optimisation",
+              "Service business acquisition pipeline",
+              "AI-enabled operational transformation",
+              "Structured integration playbooks",
+              "Data-driven margin expansion",
             ].map((item) => (
-              <div key={item} className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full border border-primary-foreground/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Check size={12} className="text-primary-foreground/70" />
-                </div>
-                <span className="text-primary-foreground/80 text-sm leading-relaxed">{item}</span>
+              <div key={item} className="flex items-start gap-4 p-5 border border-border bg-background">
+                <span className="w-1 h-1 rounded-full bg-foreground flex-shrink-0 mt-2" />
+                <span className="text-sm leading-relaxed">{item}</span>
               </div>
             ))}
           </div>
@@ -126,22 +126,38 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Platform in Action */}
-    <section className="py-24 bg-slate-section">
+    {/* AIGG Operating Model */}
+    <section className="py-24 bg-navy text-primary-foreground">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Platform in Action</p>
-          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-6">
-            Intelligence Applied Across Regions
-          </h2>
-          <p className="text-muted-foreground text-sm leading-relaxed mb-10">
-            See how AIGG applies its intelligence layer across operating regions including Australia.
-          </p>
-          <a href="https://aigg.com.au" target="_blank" rel="noopener noreferrer">
-            <Button variant="premium" size="lg">
-              View Execution Platform <ArrowRight className="ml-1" size={14} />
-            </Button>
-          </a>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-primary-foreground/50 mb-3">AIGG Operating Model</p>
+            <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-6">
+              Disciplined Execution at Every Level
+            </h2>
+            <p className="text-primary-foreground/60 leading-relaxed">
+              A structured operating model that combines buy-and-build strategy with AI integration, centralised operations, and systematic margin expansion across every portfolio company.
+            </p>
+          </div>
+
+          <div className="space-y-5">
+            {[
+              { title: "Buy-and-Build Strategy", desc: "Systematic acquisition of complementary service businesses" },
+              { title: "AI Integration", desc: "Embedded AI across operational and decision-making layers" },
+              { title: "Centralised Operations", desc: "Shared infrastructure reducing overhead and complexity" },
+              { title: "Margin Expansion", desc: "Data-driven strategies for continuous profitability improvement" },
+            ].map((item) => (
+              <div key={item.title} className="flex items-start gap-4">
+                <div className="w-6 h-6 rounded-full border border-primary-foreground/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Check size={12} className="text-primary-foreground/70" />
+                </div>
+                <div>
+                  <span className="text-primary-foreground/90 text-sm font-medium">{item.title}</span>
+                  <p className="text-primary-foreground/50 text-xs mt-0.5">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -189,8 +205,8 @@ const Index = () => (
 
         <div className="grid md:grid-cols-2 gap-px bg-border">
           {[
-            { name: "Chris Robinson", region: "United Kingdom", focus: "AI systems, frameworks, strategy", initials: "CR" },
-            { name: "Lee Robinson", region: "Australia", focus: "Acquisition execution, operator insights", initials: "LR" },
+            { name: "Chris Robinson", region: "United Kingdom", focus: "Strategy, acquisitions, AI systems, market insights", initials: "CR" },
+            { name: "Lee Robinson", region: "Australia", focus: "Strategy, acquisitions, operational execution", initials: "LR" },
           ].map((person) => (
             <Link to="/perspectives" key={person.name} className="bg-background p-10 group">
               <div className="w-14 h-14 rounded-full bg-primary/5 border border-border flex items-center justify-center mb-6">
@@ -205,28 +221,28 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Global Presence */}
+    {/* Platform in Action */}
     <section className="py-24 bg-navy text-primary-foreground">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs font-medium tracking-[0.3em] uppercase text-primary-foreground/50 mb-3">Global Presence</p>
+          <p className="text-xs font-medium tracking-[0.3em] uppercase text-primary-foreground/50 mb-3">Multi-Market Platform</p>
           <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight leading-snug mb-6">
-            Operating Across Regions
+            Independent Execution, Shared Frameworks
           </h2>
           <p className="text-primary-foreground/50 text-sm leading-relaxed mb-12">
-            AIGG operates across multiple regions including the United Kingdom and Australia, building intelligence infrastructure at scale.
+            AIGG operates across multiple markets with independent execution, shared frameworks, and aligned strategy.
           </p>
-          <div className="flex justify-center gap-16">
-            <div className="text-center">
-              <Globe size={24} className="text-primary-foreground/50 mx-auto mb-3" />
-              <p className="text-sm font-medium text-primary-foreground">United Kingdom</p>
-              <p className="text-xs text-primary-foreground/40 mt-1">Intelligence HQ</p>
-            </div>
-            <div className="text-center">
-              <Globe size={24} className="text-primary-foreground/50 mx-auto mb-3" />
-              <p className="text-sm font-medium text-primary-foreground">Australia</p>
-              <p className="text-xs text-primary-foreground/40 mt-1">Execution Platform</p>
-            </div>
+          <div className="flex justify-center gap-4 flex-wrap">
+            <Link to="/global">
+              <Button variant="premium-white" size="lg">
+                Global Presence <ArrowRight className="ml-1" size={14} />
+              </Button>
+            </Link>
+            <a href="https://aigg.com.au" target="_blank" rel="noopener noreferrer">
+              <Button variant="premium-outline" size="lg" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground hover:text-foreground">
+                View Australia <ArrowRight className="ml-1" size={14} />
+              </Button>
+            </a>
           </div>
         </div>
       </div>

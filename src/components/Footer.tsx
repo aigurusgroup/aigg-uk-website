@@ -7,21 +7,21 @@ const Footer = () => (
         <div>
           <span className="font-display font-bold text-lg text-primary-foreground tracking-tight">AIGG</span>
           <p className="text-primary-foreground/50 text-sm mt-3 leading-relaxed">
-            AI-enabled intelligence and acquisition platform operating across multiple regions.
+            Multi-market platform acquiring, operating, and scaling AI-enabled service businesses.
           </p>
         </div>
 
         <div>
           <h4 className="text-primary-foreground/80 font-medium text-xs tracking-widest uppercase mb-4">Platform</h4>
           <div className="flex flex-col gap-2">
-            <Link to="/platform" className="text-primary-foreground/50 hover:text-primary-foreground text-sm transition-colors">Intelligence Engine</Link>
+            <Link to="/platform" className="text-primary-foreground/50 hover:text-primary-foreground text-sm transition-colors">Platform Overview</Link>
             <Link to="/insights" className="text-primary-foreground/50 hover:text-primary-foreground text-sm transition-colors">Insights</Link>
             <Link to="/perspectives" className="text-primary-foreground/50 hover:text-primary-foreground text-sm transition-colors">Perspectives</Link>
           </div>
         </div>
 
         <div>
-          <h4 className="text-primary-foreground/80 font-medium text-xs tracking-widest uppercase mb-4">Regions</h4>
+          <h4 className="text-primary-foreground/80 font-medium text-xs tracking-widest uppercase mb-4">Markets</h4>
           <div className="flex flex-col gap-2">
             <span className="text-primary-foreground/50 text-sm">United Kingdom</span>
             <a href="https://aigg.com.au" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/50 hover:text-primary-foreground text-sm transition-colors">Australia</a>
