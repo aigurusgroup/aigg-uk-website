@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import { Globe, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const Global = () => (
+const Markets = () => (
   <Layout>
     <section className="relative min-h-[60vh] flex items-center pt-16">
       <div className="container mx-auto px-4 lg:px-8">
@@ -67,4 +67,4 @@ const Global = () => (
   </Layout>
 );
 
-export default Global;
+export default Markets;
