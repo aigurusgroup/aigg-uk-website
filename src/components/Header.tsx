@@ -5,9 +5,11 @@ import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
   { label: "Platform", href: "/platform" },
-  { label: "Insights", href: "/insights" },
+  { label: "Markets", href: "/markets" },
   { label: "Perspectives", href: "/perspectives" },
-  { label: "Global", href: "/global" },
+  { label: "Sell Your Business", href: "/sell" },
+  { label: "Investors", href: "/investors" },
+  { label: "About", href: "/about" },
 ];
 
 const Header = () => {
@@ -22,7 +24,7 @@ const Header = () => {
           <span className="text-[10px] text-muted-foreground tracking-widest uppercase font-medium border-l border-border pl-3">United Kingdom</span>
         </Link>
 
-        <div className="hidden lg:flex items-center gap-7">
+        <div className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.label}
@@ -36,8 +38,8 @@ const Header = () => {
               {link.label}
             </Link>
           ))}
-          <Link to="/platform">
-            <Button variant="nav" size="sm">Explore Platform</Button>
+          <Link to="/sell">
+            <Button variant="nav" size="sm">Submit Opportunity</Button>
           </Link>
         </div>
 
@@ -58,8 +60,8 @@ const Header = () => {
               {link.label}
             </Link>
           ))}
-          <Link to="/platform" onClick={() => setIsOpen(false)}>
-            <Button variant="nav" size="sm" className="mt-2 w-full">Explore Platform</Button>
+          <Link to="/sell" onClick={() => setIsOpen(false)}>
+            <Button variant="nav" size="sm" className="mt-2 w-full">Submit Opportunity</Button>
           </Link>
         </div>
       )}

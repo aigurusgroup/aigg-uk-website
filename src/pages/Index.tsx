@@ -1,8 +1,15 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, Check } from "lucide-react";
+import { ArrowRight, Globe, Check, Target, Settings, Cpu, TrendingUp } from "lucide-react";
 import { team } from "@/data/team";
+
+const pillars = [
+  { icon: Target, title: "Acquisition Strategy", desc: "Systematic identification and acquisition of high-potential service businesses." },
+  { icon: Settings, title: "Operational Integration", desc: "Structured playbooks aligning operations, systems, and governance." },
+  { icon: Cpu, title: "AI-Enabled Systems", desc: "Embedded AI across operational and decision-making layers." },
+  { icon: TrendingUp, title: "Platform Scaling", desc: "Data-driven strategies for margin expansion and sustainable growth." },
+];
 
 const Index = () => (
   <Layout>
@@ -25,8 +32,8 @@ const Index = () => (
                 Explore Platform <ArrowRight className="ml-1" size={14} />
               </Button>
             </Link>
-            <Link to="/insights">
-              <Button variant="premium-outline" size="lg">View Insights</Button>
+            <Link to="/perspectives">
+              <Button variant="premium-outline" size="lg">View Perspectives</Button>
             </Link>
           </div>
         </div>
@@ -34,47 +41,20 @@ const Index = () => (
       <div className="absolute bottom-0 left-0 right-0 h-px bg-border" />
     </section>
 
-    {/* The AIGG Platform */}
+    {/* Platform Pillars */}
     <section className="py-24 bg-slate-section">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="mb-16">
           <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">The AIGG Platform</p>
-          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight max-w-3xl">
-            A multi-market platform where each region functions as a core market with independent capability and localised intellectual property.
-          </h2>
+          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">Four Pillars of Execution</h2>
         </div>
-        <div className="grid md:grid-cols-2 gap-px bg-border">
-          {[
-            { region: "United Kingdom", label: "Core Market", desc: "Acquisition strategy, AI systems development, and operational scaling across UK service markets." },
-            { region: "Australia", label: "Core Market", desc: "Independent execution with shared frameworks, scaling service businesses across the Australian market." },
-          ].map(m => (
-            <div key={m.region} className="bg-background p-10">
-              <Globe size={24} className="text-foreground mb-6" />
-              <h3 className="font-display font-bold text-xl mb-2 tracking-tight">{m.region}</h3>
-              <p className="text-xs tracking-widest uppercase text-muted-foreground mb-4">{m.label}</p>
-              <p className="text-muted-foreground text-sm leading-relaxed">{m.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* What We Do */}
-    <section className="py-24">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="mb-16">
-          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">What We Do</p>
-          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">Acquire. Integrate. Scale.</h2>
-        </div>
-        <div className="grid md:grid-cols-3 gap-px bg-border">
-          {[
-            { step: "01", title: "Acquire Businesses", desc: "Identify and acquire high-potential service businesses with strong fundamentals and growth capacity." },
-            { step: "02", title: "Implement AI & Systems", desc: "Deploy AI-enabled operational systems, automation frameworks, and data-driven decision layers." },
-            { step: "03", title: "Scale Through Integration", desc: "Execute structured integration playbooks that drive margin expansion and sustainable growth." },
-          ].map(({ step, title, desc }) => (
-            <div key={step} className="bg-background p-10">
-              <span className="text-xs font-medium tracking-widest text-muted-foreground">{step}</span>
-              <h3 className="font-display font-semibold text-lg mt-4 mb-2 tracking-tight">{title}</h3>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+          {pillars.map(({ icon: Icon, title, desc }) => (
+            <div key={title} className="bg-background p-8">
+              <div className="w-10 h-10 flex items-center justify-center bg-primary/5 border border-border mb-5">
+                <Icon className="text-foreground" size={18} />
+              </div>
+              <h3 className="font-display font-semibold text-sm mb-2 tracking-tight">{title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
             </div>
           ))}
@@ -82,37 +62,28 @@ const Index = () => (
       </div>
     </section>
 
-    {/* UK Market Focus */}
-    <section className="py-24 bg-slate-section">
+    {/* Core Markets */}
+    <section className="py-24">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">UK Market Focus</p>
-            <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-6">
-              Acquiring and Scaling Service Businesses Across Key Sectors
-            </h2>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              AIGG United Kingdom focuses on identifying, acquiring, and scaling service businesses across key sectors using its platform model. We combine local market expertise with shared AI frameworks and operational discipline.
-            </p>
-            <Link to="/platform">
-              <Button variant="premium-outline" size="lg">
-                Learn More <ArrowRight className="ml-1" size={14} />
-              </Button>
-            </Link>
-          </div>
-          <div className="space-y-4">
-            {[
-              "Service business acquisition pipeline",
-              "AI-enabled operational transformation",
-              "Structured integration playbooks",
-              "Data-driven margin expansion",
-            ].map((item) => (
-              <div key={item} className="flex items-start gap-4 p-5 border border-border bg-background">
-                <span className="w-1 h-1 rounded-full bg-foreground flex-shrink-0 mt-2" />
-                <span className="text-sm leading-relaxed">{item}</span>
-              </div>
-            ))}
-          </div>
+        <div className="mb-16">
+          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Core Markets</p>
+          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">Two Markets. One Platform.</h2>
+          <p className="text-muted-foreground mt-4 max-w-2xl leading-relaxed">
+            Each market develops and retains its own intellectual property and operating expertise.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-px bg-border">
+          {[
+            { region: "United Kingdom", desc: "Acquisition strategy, AI systems development, and operational scaling across UK service markets." },
+            { region: "Australia", desc: "Independent execution with shared frameworks, scaling service businesses across the Australian market." },
+          ].map(m => (
+            <div key={m.region} className="bg-background p-10 lg:p-14">
+              <Globe size={24} className="text-foreground mb-6" />
+              <h3 className="font-display font-bold text-2xl tracking-tight mb-2">{m.region}</h3>
+              <p className="text-xs tracking-widest uppercase text-muted-foreground mb-4">Core Market</p>
+              <p className="text-muted-foreground text-sm leading-relaxed">{m.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -127,7 +98,7 @@ const Index = () => (
               Disciplined Execution at Every Level
             </h2>
             <p className="text-primary-foreground/60 leading-relaxed">
-              A structured operating model that combines buy-and-build strategy with AI-enabled systems, centralised processes, and systematic margin expansion across every portfolio company.
+              We don't sell AI — we use AI to build better businesses. A structured operating model combining buy-and-build strategy with AI-enabled systems across every portfolio company.
             </p>
           </div>
           <div className="space-y-5">
@@ -147,52 +118,6 @@ const Index = () => (
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* Core Markets */}
-    <section className="py-24">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="mb-16">
-          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Core Markets</p>
-          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">Two Markets. One Platform.</h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl leading-relaxed">
-            AIGG operates across multiple markets with aligned strategy and independent execution. Each market develops and retains its own intellectual property and operating expertise.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-2 gap-px bg-border">
-          <div className="bg-background p-10 lg:p-14">
-            <Globe size={24} className="text-foreground mb-6" />
-            <h3 className="font-display font-bold text-2xl tracking-tight mb-2">United Kingdom</h3>
-            <p className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Core Market</p>
-            <ul className="space-y-2">
-              {["Acquisition strategy & execution", "AI systems development", "Operational scaling", "Market intelligence"].map(item => (
-                <li key={item} className="text-sm text-muted-foreground flex items-center gap-3">
-                  <span className="w-1 h-1 rounded-full bg-foreground flex-shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="bg-background p-10 lg:p-14">
-            <Globe size={24} className="text-foreground mb-6" />
-            <h3 className="font-display font-bold text-2xl tracking-tight mb-2">Australia</h3>
-            <p className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Core Market</p>
-            <ul className="space-y-2 mb-8">
-              {["Acquisition execution", "Operational scaling", "Market deployment", "Performance tracking"].map(item => (
-                <li key={item} className="text-sm text-muted-foreground flex items-center gap-3">
-                  <span className="w-1 h-1 rounded-full bg-foreground flex-shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <a href="https://aigg.com.au" target="_blank" rel="noopener noreferrer">
-              <Button variant="premium-outline" size="lg">
-                View AU Platform <ArrowRight className="ml-1" size={14} />
-              </Button>
-            </a>
           </div>
         </div>
       </div>
@@ -241,9 +166,7 @@ const Index = () => (
               <p className="text-[10px] tracking-widest uppercase text-muted-foreground mt-1">{person.market}</p>
               <div className="flex flex-wrap gap-1.5 mt-3">
                 {person.expertise.map((tag) => (
-                  <span key={tag} className="text-[10px] font-medium tracking-wide uppercase px-2 py-0.5 border border-border text-muted-foreground">
-                    {tag}
-                  </span>
+                  <span key={tag} className="text-[10px] font-medium tracking-wide uppercase px-2 py-0.5 border border-border text-muted-foreground">{tag}</span>
                 ))}
               </div>
               <p className="text-sm text-muted-foreground mt-3 leading-relaxed line-clamp-3">{person.capability}</p>
@@ -255,25 +178,26 @@ const Index = () => (
         </div>
       </div>
     </section>
-    {/* Insights Preview */}
+
+    {/* Perspectives Preview */}
     <section className="py-24 bg-slate-section">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-end justify-between mb-16">
           <div>
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Insights</p>
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Perspectives</p>
             <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">Research & Intelligence</h2>
           </div>
-          <Link to="/insights" className="hidden md:flex items-center gap-2 text-xs font-medium tracking-wide uppercase text-muted-foreground hover:text-foreground transition-colors">
+          <Link to="/perspectives" className="hidden md:flex items-center gap-2 text-xs font-medium tracking-wide uppercase text-muted-foreground hover:text-foreground transition-colors">
             View All <ArrowRight size={12} />
           </Link>
         </div>
         <div className="grid md:grid-cols-3 gap-px bg-border">
           {[
             { cat: "Acquisition Strategy", title: "Building the Post-Acquisition Operating Model" },
-            { cat: "AI in Service Businesses", title: "How AI is Reshaping Professional Services Valuation" },
-            { cat: "Market Commentary", title: "2026 Market Landscape: Services Sector Outlook" },
+            { cat: "AI in Practice", title: "How AI is Reshaping Professional Services Valuation" },
+            { cat: "Market Insights", title: "2026 Market Landscape: Services Sector Outlook" },
           ].map((article) => (
-            <Link to="/insights" key={article.title} className="bg-background p-10 group">
+            <Link to="/perspectives" key={article.title} className="bg-background p-10 group">
               <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground">{article.cat}</span>
               <h3 className="mt-4 text-lg font-display font-semibold text-foreground group-hover:text-primary transition-colors leading-snug tracking-tight">
                 {article.title}
@@ -287,7 +211,7 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Multi-Market Platform CTA */}
+    {/* CTA */}
     <section className="py-24 bg-navy text-primary-foreground">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
@@ -299,9 +223,9 @@ const Index = () => (
             AIGG operates across multiple markets with aligned strategy and independent execution.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
-            <Link to="/global">
+            <Link to="/sell">
               <Button variant="premium-white" size="lg">
-                Core Markets <ArrowRight className="ml-1" size={14} />
+                Submit Opportunity <ArrowRight className="ml-1" size={14} />
               </Button>
             </Link>
             <a href="https://aigg.com.au" target="_blank" rel="noopener noreferrer">

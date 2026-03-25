@@ -58,6 +58,7 @@ export const team: TeamMember[] = [
     initials: "MB",
   },
 ];
+
 export interface Article {
   title: string;
   category: string;
@@ -70,15 +71,15 @@ export interface Article {
 export const insightCategories = [
   "All",
   "Acquisition Strategy",
-  "AI in Service Businesses",
-  "Market Commentary",
+  "Market Insights",
+  "AI in Practice",
   "Operator Thinking",
 ];
 
 export const articles: Article[] = [
   {
     title: "How AI is Reshaping Professional Services Valuation",
-    category: "AI in Service Businesses",
+    category: "AI in Practice",
     date: "March 2026",
     excerpt: "Examining how artificial intelligence models are fundamentally changing the way professional services firms are valued in acquisition contexts.",
     author: "Chris Robinson",
@@ -110,7 +111,7 @@ export const articles: Article[] = [
   },
   {
     title: "2026 Market Landscape: Services Sector Outlook",
-    category: "Market Commentary",
+    category: "Market Insights",
     date: "January 2026",
     excerpt: "Comprehensive analysis of market dynamics, valuation trends, and acquisition opportunities across the professional services landscape.",
     author: "Chris Robinson",
@@ -118,10 +119,10 @@ export const articles: Article[] = [
   },
   {
     title: "The Role of Automation in Service Business Margins",
-    category: "AI in Service Businesses",
+    category: "AI in Practice",
     date: "January 2026",
     excerpt: "How systematic automation of operational processes translates directly into measurable margin improvement across service verticals.",
-    author: "Chris Robinson",
+    author: "Geouffrey Erasmus",
     market: "United Kingdom",
   },
   {
@@ -134,10 +135,26 @@ export const articles: Article[] = [
   },
   {
     title: "Cross-Border Acquisition Intelligence",
-    category: "Market Commentary",
+    category: "Market Insights",
     date: "October 2025",
     excerpt: "How multi-market intelligence platforms create asymmetric advantages in cross-border acquisition strategies.",
     author: "Chris Robinson",
+    market: "United Kingdom",
+  },
+  {
+    title: "Financial Due Diligence in Service Business Acquisitions",
+    category: "Acquisition Strategy",
+    date: "November 2025",
+    excerpt: "Key financial frameworks and red flags to assess when acquiring service businesses in fragmented markets.",
+    author: "Loretto Burke",
+    market: "United Kingdom",
+  },
+  {
+    title: "Operator-Led Scaling: What the Textbooks Miss",
+    category: "Operator Thinking",
+    date: "October 2025",
+    excerpt: "Practical insights from decades of hands-on scaling across multi-model service operations.",
+    author: "Michael Bradley",
     market: "United Kingdom",
   },
 ];
@@ -147,9 +164,9 @@ export const perspectiveArticles = [
     author: "Chris Robinson",
     market: "United Kingdom" as const,
     articles: [
-      { title: "Why AI Systems Thinking Will Define the Next Decade of Business", date: "March 2026", topic: "AI in Service Businesses" },
+      { title: "Why AI Systems Thinking Will Define the Next Decade of Business", date: "March 2026", topic: "AI in Practice" },
       { title: "Building Intelligence Infrastructure: A Framework", date: "February 2026", topic: "Acquisition Strategy" },
-      { title: "The Strategic Case for Platform-Level AI", date: "January 2026", topic: "AI in Service Businesses" },
+      { title: "The Strategic Case for Platform-Level AI", date: "January 2026", topic: "AI in Practice" },
     ],
   },
   {
@@ -159,6 +176,30 @@ export const perspectiveArticles = [
       { title: "Operator Insights: First 100 Days Post-Acquisition", date: "March 2026", topic: "Operator Thinking" },
       { title: "Scaling Service Businesses Through Systematic Execution", date: "February 2026", topic: "Operator Thinking" },
       { title: "The Acquisition Playbook: Lessons from the Field", date: "December 2025", topic: "Acquisition Strategy" },
+    ],
+  },
+  {
+    author: "Geouffrey Erasmus",
+    market: "United Kingdom" as const,
+    articles: [
+      { title: "Engineering AI-First Service Platforms", date: "February 2026", topic: "AI in Practice" },
+      { title: "Data Architecture for Acquired Businesses", date: "January 2026", topic: "AI in Practice" },
+    ],
+  },
+  {
+    author: "Loretto Burke",
+    market: "United Kingdom" as const,
+    articles: [
+      { title: "Financial Due Diligence in Service Business Acquisitions", date: "November 2025", topic: "Acquisition Strategy" },
+      { title: "Post-Acquisition Financial Integration: A Framework", date: "October 2025", topic: "Acquisition Strategy" },
+    ],
+  },
+  {
+    author: "Michael Bradley",
+    market: "United Kingdom" as const,
+    articles: [
+      { title: "Operator-Led Scaling: What the Textbooks Miss", date: "October 2025", topic: "Operator Thinking" },
+      { title: "Judgement in Acquisitions: Beyond the Spreadsheet", date: "September 2025", topic: "Operator Thinking" },
     ],
   },
 ];

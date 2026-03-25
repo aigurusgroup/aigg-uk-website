@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { team, perspectiveArticles } from "@/data/team";
 
 const markets = ["All", "United Kingdom", "Australia"];
-const topics = ["All", "AI in Service Businesses", "Acquisition Strategy", "Operator Thinking", "Market Commentary"];
+const topics = ["All", "Acquisition Strategy", "Market Insights", "AI in Practice", "Operator Thinking"];
 
 const Perspectives = () => {
   const [marketFilter, setMarketFilter] = useState("All");
@@ -40,52 +40,22 @@ const Perspectives = () => {
       {/* Filters */}
       <section className="py-10 border-b border-border">
         <div className="container mx-auto px-4 lg:px-8 space-y-4">
-          <div>
-            <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground mr-4">Market</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground mr-2">Market</span>
             {markets.map(m => (
-              <button
-                key={m}
-                onClick={() => setMarketFilter(m)}
-                className={`text-xs font-medium tracking-wide uppercase px-3 py-1.5 border mr-2 transition-colors ${
-                  marketFilter === m
-                    ? "border-foreground text-foreground bg-primary/5"
-                    : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
-                }`}
-              >
-                {m}
-              </button>
+              <button key={m} onClick={() => setMarketFilter(m)} className={`text-xs font-medium tracking-wide uppercase px-3 py-1.5 border transition-colors ${marketFilter === m ? "border-foreground text-foreground bg-primary/5" : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"}`}>{m}</button>
             ))}
           </div>
-          <div>
-            <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground mr-4">Topic</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground mr-2">Topic</span>
             {topics.map(t => (
-              <button
-                key={t}
-                onClick={() => setTopicFilter(t)}
-                className={`text-xs font-medium tracking-wide uppercase px-3 py-1.5 border mr-2 transition-colors ${
-                  topicFilter === t
-                    ? "border-foreground text-foreground bg-primary/5"
-                    : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
-                }`}
-              >
-                {t}
-              </button>
+              <button key={t} onClick={() => setTopicFilter(t)} className={`text-xs font-medium tracking-wide uppercase px-3 py-1.5 border transition-colors ${topicFilter === t ? "border-foreground text-foreground bg-primary/5" : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"}`}>{t}</button>
             ))}
           </div>
-          <div>
-            <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground mr-4">Author</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground mr-2">Author</span>
             {authorNames.map(a => (
-              <button
-                key={a}
-                onClick={() => setAuthorFilter(a)}
-                className={`text-xs font-medium tracking-wide uppercase px-3 py-1.5 border mr-2 transition-colors ${
-                  authorFilter === a
-                    ? "border-foreground text-foreground bg-primary/5"
-                    : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
-                }`}
-              >
-                {a}
-              </button>
+              <button key={a} onClick={() => setAuthorFilter(a)} className={`text-xs font-medium tracking-wide uppercase px-3 py-1.5 border transition-colors ${authorFilter === a ? "border-foreground text-foreground bg-primary/5" : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"}`}>{a}</button>
             ))}
           </div>
         </div>
@@ -107,16 +77,12 @@ const Perspectives = () => {
                     <h2 className="font-display font-bold text-2xl tracking-tight">{pa.author}</h2>
                     <p className="text-xs tracking-widest uppercase text-muted-foreground mt-1">{pa.market}</p>
                     <p className="text-xs tracking-widest uppercase text-muted-foreground">{member?.role}</p>
-                    <p className="text-sm text-muted-foreground mt-6 leading-relaxed">
-                      Focus: {member?.focus}
-                    </p>
+                    <p className="text-sm text-muted-foreground mt-6 leading-relaxed">Focus: {member?.focus}</p>
                     <div className="mt-10 divide-y divide-border">
                       {pa.articles.map(article => (
                         <div key={article.title} className="py-5 group cursor-pointer">
                           <span className="text-[10px] font-medium tracking-[0.2em] uppercase text-muted-foreground">{article.topic}</span>
-                          <h3 className="font-display font-semibold text-base text-foreground group-hover:text-primary transition-colors leading-snug tracking-tight mt-1">
-                            {article.title}
-                          </h3>
+                          <h3 className="font-display font-semibold text-base text-foreground group-hover:text-primary transition-colors leading-snug tracking-tight mt-1">{article.title}</h3>
                           <div className="flex items-center justify-between mt-2">
                             <span className="text-xs text-muted-foreground">{article.date}</span>
                             <ArrowRight size={12} className="text-muted-foreground group-hover:text-foreground transition-colors" />

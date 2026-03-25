@@ -5,9 +5,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index";
 import Platform from "./pages/Platform";
+import Markets from "./pages/Markets";
 import Insights from "./pages/Insights";
 import Perspectives from "./pages/Perspectives";
-import Global from "./pages/Global";
+import SellYourBusiness from "./pages/SellYourBusiness";
+import Investors from "./pages/Investors";
+import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,9 +24,14 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/platform" element={<Platform />} />
+          <Route path="/markets" element={<Markets />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/perspectives" element={<Perspectives />} />
-          <Route path="/global" element={<Global />} />
+          <Route path="/sell" element={<SellYourBusiness />} />
+          <Route path="/investors" element={<Investors />} />
+          <Route path="/about" element={<About />} />
+          {/* Legacy redirects */}
+          <Route path="/global" element={<Markets />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
