@@ -3,6 +3,8 @@ export interface TeamMember {
   market: "United Kingdom" | "Australia";
   role: string;
   focus: string;
+  capability: string;
+  expertise: string[];
   initials: string;
   isLeadership?: boolean;
 }
@@ -13,6 +15,8 @@ export const team: TeamMember[] = [
     market: "United Kingdom",
     role: "Strategy & AI Systems",
     focus: "Technology ventures, AI strategy, business acquisition & integration",
+    capability: "Entrepreneur and investor with 17 successful ventures across software, AI, and customer-experience technology. Combines deep operational expertise with cutting-edge AI innovation to drive acquisition strategy and platform development.",
+    expertise: ["AI", "Strategy", "Acquisitions"],
     initials: "CR",
     isLeadership: true,
   },
@@ -21,6 +25,8 @@ export const team: TeamMember[] = [
     market: "Australia",
     role: "Strategy & Execution",
     focus: "Strategy, acquisitions, operational execution",
+    capability: "Operator and strategist focused on identifying, acquiring, and scaling service businesses across the Australian market. Drives independent execution with shared strategic frameworks.",
+    expertise: ["Strategy", "Operations", "Acquisitions"],
     initials: "LR",
     isLeadership: true,
   },
@@ -29,6 +35,8 @@ export const team: TeamMember[] = [
     market: "United Kingdom",
     role: "Technology & Architecture",
     focus: "Enterprise software architecture, AI & business intelligence, data engineering",
+    capability: "Technology expert with over 20 years in software development, enterprise solutions, and technical team leadership. Drives product innovation across AI-driven automation, data engineering, and business intelligence systems.",
+    expertise: ["AI", "Technology", "Data"],
     initials: "GE",
   },
   {
@@ -36,6 +44,8 @@ export const team: TeamMember[] = [
     market: "United Kingdom",
     role: "Finance & Governance",
     focus: "Financial control, due diligence & deal support, treasury & risk management",
+    capability: "Finance executive with 20+ years establishing financial control, governance, and reporting across complex organisations. Leads opportunity assessment, deal execution, and post-acquisition financial integration.",
+    expertise: ["Finance", "Due Diligence", "Governance"],
     initials: "LB",
   },
   {
@@ -43,6 +53,8 @@ export const team: TeamMember[] = [
     market: "United Kingdom",
     role: "Operations & Investment",
     focus: "Operator-led business scaling, acquisition judgement, multi-model operations",
+    capability: "Operator and investor with 45+ years across construction, property services, and multi-model business operations. Brings deep judgement on acquisitions and hands-on scaling of portfolio companies.",
+    expertise: ["Operations", "Investment", "Scaling"],
     initials: "MB",
   },
 ];
