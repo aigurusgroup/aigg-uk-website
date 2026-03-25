@@ -42,19 +42,19 @@ const Perspectives = () => {
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground mr-2">Market</span>
             {markets.map(m => (
-              <button key={m} onClick={() => setMarketFilter(m)} className={`text-xs font-medium tracking-wide uppercase px-3 py-1.5 border transition-colors ${marketFilter === m ? "border-primary text-primary bg-primary/10" : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"}`}>{m}</button>
+              <button key={m} onClick={() => setMarketFilter(m)} className={`text-xs font-medium tracking-wide uppercase px-3 py-1.5 border transition-colors ${marketFilter === m ? "border-foreground text-foreground bg-primary/5" : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"}`}>{m}</button>
             ))}
           </div>
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground mr-2">Topic</span>
             {topics.map(t => (
-              <button key={t} onClick={() => setTopicFilter(t)} className={`text-xs font-medium tracking-wide uppercase px-3 py-1.5 border transition-colors ${topicFilter === t ? "border-primary text-primary bg-primary/10" : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"}`}>{t}</button>
+              <button key={t} onClick={() => setTopicFilter(t)} className={`text-xs font-medium tracking-wide uppercase px-3 py-1.5 border transition-colors ${topicFilter === t ? "border-foreground text-foreground bg-primary/5" : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"}`}>{t}</button>
             ))}
           </div>
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground mr-2">Author</span>
             {authorNames.map(a => (
-              <button key={a} onClick={() => setAuthorFilter(a)} className={`text-xs font-medium tracking-wide uppercase px-3 py-1.5 border transition-colors ${authorFilter === a ? "border-primary text-primary bg-primary/10" : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"}`}>{a}</button>
+              <button key={a} onClick={() => setAuthorFilter(a)} className={`text-xs font-medium tracking-wide uppercase px-3 py-1.5 border transition-colors ${authorFilter === a ? "border-foreground text-foreground bg-primary/5" : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"}`}>{a}</button>
             ))}
           </div>
         </div>
@@ -69,9 +69,9 @@ const Perspectives = () => {
               {filtered.map(pa => {
                 const member = team.find(t => t.name === pa.author);
                 return (
-                  <div key={pa.author} className="bg-card p-10 lg:p-14">
-                    <div className="w-14 h-14 rounded-full bg-primary/10 border border-border flex items-center justify-center mb-8">
-                      <span className="text-sm font-display font-semibold text-primary">{member?.initials}</span>
+                  <div key={pa.author} className="bg-background p-10 lg:p-14">
+                    <div className="w-14 h-14 rounded-full bg-primary/5 border border-border flex items-center justify-center mb-8">
+                      <span className="text-sm font-display font-semibold text-muted-foreground">{member?.initials}</span>
                     </div>
                     <h2 className="font-display font-bold text-2xl tracking-tight">{pa.author}</h2>
                     <p className="text-xs tracking-widest uppercase text-muted-foreground mt-1">{pa.market}</p>
@@ -84,7 +84,7 @@ const Perspectives = () => {
                           <h3 className="font-display font-semibold text-base text-foreground group-hover:text-primary transition-colors leading-snug tracking-tight mt-1">{article.title}</h3>
                           <div className="flex items-center justify-between mt-2">
                             <span className="text-xs text-muted-foreground">{article.date}</span>
-                            <ArrowRight size={12} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                            <ArrowRight size={12} className="text-muted-foreground group-hover:text-foreground transition-colors" />
                           </div>
                         </div>
                       ))}
