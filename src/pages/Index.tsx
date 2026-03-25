@@ -221,14 +221,14 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Platform Contributors */}
+    {/* Platform Operators & Contributors */}
     <section className="py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="mb-16">
-          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Platform Contributors</p>
+          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Platform Operators & Contributors</p>
           <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">Operators, Strategists & Technologists</h2>
           <p className="text-muted-foreground mt-4 max-w-2xl leading-relaxed">
-            AIGG brings together operators, strategists, and technologists across markets who contribute to platform development, insights, and execution.
+            AIGG brings together a network of operators, strategists, and technologists who contribute to platform development, execution, and insights across markets.
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
@@ -239,7 +239,14 @@ const Index = () => (
               </div>
               <h3 className="font-display font-semibold text-base tracking-tight group-hover:text-primary transition-colors">{person.name}</h3>
               <p className="text-[10px] tracking-widest uppercase text-muted-foreground mt-1">{person.market}</p>
-              <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{person.focus}</p>
+              <div className="flex flex-wrap gap-1.5 mt-3">
+                {person.expertise.map((tag) => (
+                  <span key={tag} className="text-[10px] font-medium tracking-wide uppercase px-2 py-0.5 border border-border text-muted-foreground">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <p className="text-sm text-muted-foreground mt-3 leading-relaxed line-clamp-3">{person.capability}</p>
               <span className="mt-4 inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-foreground transition-colors">
                 View Insights <ArrowRight size={10} />
               </span>
@@ -248,7 +255,6 @@ const Index = () => (
         </div>
       </div>
     </section>
-
     {/* Insights Preview */}
     <section className="py-24 bg-slate-section">
       <div className="container mx-auto px-4 lg:px-8">
