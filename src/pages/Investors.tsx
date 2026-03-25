@@ -37,9 +37,9 @@ const Investors = () => (
         </div>
         <div className="grid sm:grid-cols-2 gap-px bg-border">
           {highlights.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="bg-background p-10">
-              <div className="w-12 h-12 flex items-center justify-center bg-primary/5 border border-border mb-6">
-                <Icon className="text-foreground" size={22} />
+            <div key={title} className="bg-card p-10">
+              <div className="w-12 h-12 flex items-center justify-center bg-primary/10 border border-border mb-6">
+                <Icon className="text-primary" size={22} />
               </div>
               <h3 className="font-display font-semibold text-lg mb-2 tracking-tight">{title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
@@ -49,15 +49,15 @@ const Investors = () => (
       </div>
     </section>
 
-    <section className="py-24 bg-navy text-primary-foreground">
+    <section className="py-24 bg-navy">
       <div className="container mx-auto px-4 lg:px-8 text-center max-w-2xl mx-auto">
-        <p className="text-xs font-medium tracking-[0.3em] uppercase text-primary-foreground/50 mb-3">Get Involved</p>
+        <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Get Involved</p>
         <h2 className="text-2xl lg:text-3xl font-display font-bold tracking-tight mb-4">Investor Enquiries</h2>
-        <p className="text-primary-foreground/50 text-sm leading-relaxed mb-10">
+        <p className="text-muted-foreground text-sm leading-relaxed mb-10">
           For institutional or strategic investor enquiries, please get in touch with our team. All conversations are confidential.
         </p>
         <Link to="/sell">
-          <Button variant="premium-white" size="lg">
+          <Button variant="premium" size="lg">
             Contact Us <ArrowRight className="ml-1" size={14} />
           </Button>
         </Link>

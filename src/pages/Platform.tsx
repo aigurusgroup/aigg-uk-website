@@ -19,7 +19,6 @@ const steps = [
 
 const Platform = () => (
   <Layout>
-    {/* Hero */}
     <section className="relative min-h-[60vh] flex items-center pt-16">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-3xl">
@@ -37,7 +36,6 @@ const Platform = () => (
       <div className="absolute bottom-0 left-0 right-0 h-px bg-border" />
     </section>
 
-    {/* 4 Pillars */}
     <section className="py-24 bg-slate-section">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="mb-16">
@@ -46,9 +44,9 @@ const Platform = () => (
         </div>
         <div className="grid sm:grid-cols-2 gap-px bg-border">
           {pillars.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="bg-background p-10">
-              <div className="w-12 h-12 flex items-center justify-center bg-primary/5 border border-border mb-6">
-                <Icon className="text-foreground" size={22} />
+            <div key={title} className="bg-card p-10">
+              <div className="w-12 h-12 flex items-center justify-center bg-primary/10 border border-border mb-6">
+                <Icon className="text-primary" size={22} />
               </div>
               <h3 className="font-display font-semibold text-lg mb-2 tracking-tight">{title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
@@ -58,7 +56,6 @@ const Platform = () => (
       </div>
     </section>
 
-    {/* How the Platform Works */}
     <section className="py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="mb-16">
@@ -67,8 +64,8 @@ const Platform = () => (
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
           {steps.map(({ step, label, desc }) => (
-            <div key={step} className="bg-background p-10">
-              <span className="text-xs font-medium tracking-widest text-muted-foreground">{step}</span>
+            <div key={step} className="bg-card p-10">
+              <span className="text-xs font-medium tracking-widest text-primary">{step}</span>
               <h3 className="font-display font-bold text-xl mt-4 mb-2 tracking-tight">{label}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
             </div>
@@ -77,24 +74,23 @@ const Platform = () => (
       </div>
     </section>
 
-    {/* Key Statement */}
-    <section className="py-24 bg-navy text-primary-foreground">
+    <section className="py-24 bg-navy">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
           <blockquote className="text-2xl lg:text-3xl font-display font-bold tracking-tight leading-snug mb-8">
             "We don't sell AI — we use AI to build better businesses."
           </blockquote>
-          <p className="text-primary-foreground/50 text-sm mb-10 max-w-lg mx-auto leading-relaxed">
+          <p className="text-muted-foreground text-sm mb-10 max-w-lg mx-auto leading-relaxed">
             Independent execution, shared frameworks, aligned strategy across every market.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
             <Link to="/sell">
-              <Button variant="premium-white" size="lg">
+              <Button variant="premium" size="lg">
                 Submit Opportunity <ArrowRight className="ml-1" size={14} />
               </Button>
             </Link>
             <a href="https://aigg.com.au" target="_blank" rel="noopener noreferrer">
-              <Button variant="premium-outline" size="lg" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground hover:text-foreground">
+              <Button variant="premium-outline" size="lg">
                 View Australia Platform <ArrowRight className="ml-1" size={14} />
               </Button>
             </a>
