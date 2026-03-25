@@ -9,16 +9,16 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/80",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-border bg-transparent text-foreground hover:bg-secondary hover:text-foreground",
+        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-secondary hover:text-foreground",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        premium: "bg-primary text-primary-foreground hover:bg-primary/80 font-semibold tracking-wide uppercase text-xs",
+        premium: "bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide uppercase text-xs",
         "premium-outline": "border border-foreground/20 bg-transparent text-foreground hover:bg-foreground hover:text-background font-medium tracking-wide uppercase text-xs transition-all duration-300",
-        "premium-white": "bg-foreground text-background hover:bg-foreground/90 font-semibold tracking-wide uppercase text-xs",
-        nav: "bg-primary text-primary-foreground hover:bg-primary/80 font-medium text-xs tracking-wide uppercase",
+        "premium-white": "bg-background text-foreground hover:bg-background/90 font-semibold tracking-wide uppercase text-xs",
+        nav: "bg-primary text-primary-foreground hover:bg-primary/90 font-medium text-xs tracking-wide uppercase",
       },
       size: {
         default: "h-10 px-5 py-2",
