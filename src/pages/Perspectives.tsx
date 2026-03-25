@@ -5,9 +5,9 @@ const authors = [
   {
     name: "Chris Robinson",
     region: "United Kingdom",
-    role: "Intelligence & Systems",
+    role: "Strategy & AI Systems",
     initials: "CR",
-    focus: "AI systems, frameworks, strategy",
+    focus: "Strategy, acquisitions, AI systems, market insights",
     articles: [
       { title: "Why AI Systems Thinking Will Define the Next Decade of Business", date: "March 2026" },
       { title: "Building Intelligence Infrastructure: A Framework", date: "February 2026" },
@@ -17,9 +17,9 @@ const authors = [
   {
     name: "Lee Robinson",
     region: "Australia",
-    role: "Execution & Operations",
+    role: "Strategy & Execution",
     initials: "LR",
-    focus: "Acquisition execution, operator insights",
+    focus: "Strategy, acquisitions, operational execution",
     articles: [
       { title: "Operator Insights: First 100 Days Post-Acquisition", date: "March 2026" },
       { title: "Scaling Service Businesses Through Systematic Execution", date: "February 2026" },

@@ -8,13 +8,13 @@ const Global = () => (
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-3xl">
           <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-6 animate-fade-in">
-            Global Presence
+            Multi-Market Platform
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.08] mb-6 animate-fade-in-up tracking-tight">
-            Operating Across Regions
+            Independent Execution, Shared Frameworks
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mb-10 animate-fade-in-up leading-relaxed" style={{ animationDelay: "0.1s" }}>
-            AIGG operates across multiple regions including the United Kingdom and Australia, building intelligence and execution infrastructure at scale.
+            AIGG operates as a multi-market platform with independent execution, shared frameworks, and aligned strategy across regions.
           </p>
         </div>
       </div>
@@ -27,12 +27,12 @@ const Global = () => (
           <div className="bg-background p-12 lg:p-16">
             <Globe size={28} className="text-foreground mb-6" />
             <h2 className="font-display font-bold text-2xl tracking-tight mb-2">United Kingdom</h2>
-            <p className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Intelligence HQ</p>
+            <p className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Core Market</p>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-              Home of the AIGG Intelligence Engine. AI systems development, strategic frameworks, and operating model design originate from the UK platform.
+              Acquisition strategy, AI systems development, and operational scaling across UK service markets. Building and scaling businesses through disciplined execution.
             </p>
             <ul className="space-y-2">
-              {["AI systems research", "Framework development", "Strategic intelligence", "Platform architecture"].map(item => (
+              {["Acquisition strategy & execution", "AI systems development", "Operational scaling", "Market intelligence"].map(item => (
                 <li key={item} className="text-sm text-muted-foreground flex items-center gap-3">
                   <span className="w-1 h-1 rounded-full bg-foreground flex-shrink-0" />
                   {item}
@@ -43,9 +43,9 @@ const Global = () => (
           <div className="bg-background p-12 lg:p-16">
             <Globe size={28} className="text-foreground mb-6" />
             <h2 className="font-display font-bold text-2xl tracking-tight mb-2">Australia</h2>
-            <p className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Execution Platform</p>
+            <p className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Core Market</p>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-              The AIGG Execution Engine in action. Acquisition identification, integration, and operational scaling across the Australian market.
+              Independent execution with shared frameworks. Acquiring and scaling service businesses across the Australian market with local expertise.
             </p>
             <ul className="space-y-2 mb-8">
               {["Acquisition execution", "Operational scaling", "Market deployment", "Performance tracking"].map(item => (
