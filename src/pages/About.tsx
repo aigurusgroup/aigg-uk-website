@@ -23,7 +23,6 @@ const About = () => (
       <div className="absolute bottom-0 left-0 right-0 h-px bg-border" />
     </section>
 
-    {/* Mission */}
     <section className="py-24 bg-slate-section">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -54,7 +53,6 @@ const About = () => (
       </div>
     </section>
 
-    {/* Team */}
     <section className="py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="mb-16">
@@ -66,9 +64,9 @@ const About = () => (
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
           {team.map((person) => (
-            <Link to="/perspectives" key={person.name} className="bg-background p-8 group">
-              <div className="w-11 h-11 rounded-full bg-primary/5 border border-border flex items-center justify-center mb-4">
-                <span className="text-xs font-display font-semibold text-muted-foreground">{person.initials}</span>
+            <Link to="/perspectives" key={person.name} className="bg-card p-8 group">
+              <div className="w-11 h-11 rounded-full bg-primary/10 border border-border flex items-center justify-center mb-4">
+                <span className="text-xs font-display font-semibold text-primary">{person.initials}</span>
               </div>
               <h3 className="font-display font-semibold text-base tracking-tight group-hover:text-primary transition-colors">{person.name}</h3>
               <p className="text-[10px] tracking-widest uppercase text-muted-foreground mt-1">{person.market}</p>
@@ -78,7 +76,7 @@ const About = () => (
                 ))}
               </div>
               <p className="text-sm text-muted-foreground mt-3 leading-relaxed line-clamp-3">{person.capability}</p>
-              <span className="mt-4 inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-foreground transition-colors">
+              <span className="mt-4 inline-flex items-center gap-1 text-xs text-muted-foreground group-hover:text-primary transition-colors">
                 View Insights <ArrowRight size={10} />
               </span>
             </Link>
@@ -87,20 +85,20 @@ const About = () => (
       </div>
     </section>
 
-    <section className="py-24 bg-navy text-primary-foreground">
+    <section className="py-24 bg-navy">
       <div className="container mx-auto px-4 lg:px-8 text-center max-w-2xl mx-auto">
         <h2 className="text-2xl lg:text-3xl font-display font-bold tracking-tight mb-4">Two Markets. One Platform.</h2>
-        <p className="text-primary-foreground/50 text-sm leading-relaxed mb-10">
+        <p className="text-muted-foreground text-sm leading-relaxed mb-10">
           AIGG operates across multiple markets with aligned strategy and independent execution.
         </p>
         <div className="flex justify-center gap-4 flex-wrap">
           <Link to="/markets">
-            <Button variant="premium-white" size="lg">
+            <Button variant="premium" size="lg">
               Core Markets <ArrowRight className="ml-1" size={14} />
             </Button>
           </Link>
           <a href="https://aigg.com.au" target="_blank" rel="noopener noreferrer">
-            <Button variant="premium-outline" size="lg" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground hover:text-foreground">
+            <Button variant="premium-outline" size="lg">
               View Australia <ArrowRight className="ml-1" size={14} />
             </Button>
           </a>

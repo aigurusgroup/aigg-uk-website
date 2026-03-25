@@ -39,7 +39,7 @@ const SellYourBusiness = () => (
               {criteria.map((item) => (
                 <div key={item} className="flex items-start gap-4">
                   <div className="w-6 h-6 border border-border flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check size={12} className="text-foreground" />
+                    <Check size={12} className="text-primary" />
                   </div>
                   <span className="text-sm leading-relaxed">{item}</span>
                 </div>
@@ -53,15 +53,15 @@ const SellYourBusiness = () => (
             <div className="space-y-6">
               <div>
                 <label className="text-xs font-medium tracking-wide uppercase text-muted-foreground block mb-2">Your Name</label>
-                <input type="text" className="w-full border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:border-foreground transition-colors" placeholder="Full name" />
+                <input type="text" className="w-full border border-border bg-card px-4 py-3 text-sm text-foreground focus:outline-none focus:border-primary transition-colors" placeholder="Full name" />
               </div>
               <div>
                 <label className="text-xs font-medium tracking-wide uppercase text-muted-foreground block mb-2">Email</label>
-                <input type="email" className="w-full border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:border-foreground transition-colors" placeholder="you@company.com" />
+                <input type="email" className="w-full border border-border bg-card px-4 py-3 text-sm text-foreground focus:outline-none focus:border-primary transition-colors" placeholder="you@company.com" />
               </div>
               <div>
                 <label className="text-xs font-medium tracking-wide uppercase text-muted-foreground block mb-2">Business Overview</label>
-                <textarea rows={4} className="w-full border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:border-foreground transition-colors resize-none" placeholder="Brief description of your business, revenue, and sector" />
+                <textarea rows={4} className="w-full border border-border bg-card px-4 py-3 text-sm text-foreground focus:outline-none focus:border-primary transition-colors resize-none" placeholder="Brief description of your business, revenue, and sector" />
               </div>
               <Button variant="premium" size="lg" className="w-full">
                 Submit Opportunity <ArrowRight className="ml-1" size={14} />
@@ -72,10 +72,10 @@ const SellYourBusiness = () => (
       </div>
     </section>
 
-    <section className="py-24 bg-navy text-primary-foreground">
+    <section className="py-24 bg-navy">
       <div className="container mx-auto px-4 lg:px-8 text-center max-w-2xl mx-auto">
         <h2 className="text-2xl lg:text-3xl font-display font-bold tracking-tight mb-4">Confidential & Professional</h2>
-        <p className="text-primary-foreground/50 text-sm leading-relaxed">
+        <p className="text-muted-foreground text-sm leading-relaxed">
           All enquiries are treated with strict confidentiality. Our team will review your submission and respond within 48 hours to discuss next steps.
         </p>
       </div>

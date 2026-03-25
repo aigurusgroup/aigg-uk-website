@@ -24,8 +24,8 @@ const Markets = () => (
     <section className="py-24 bg-slate-section">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid md:grid-cols-2 gap-px bg-border">
-          <div className="bg-background p-12 lg:p-16">
-            <Globe size={28} className="text-foreground mb-6" />
+          <div className="bg-card p-12 lg:p-16">
+            <Globe size={28} className="text-primary mb-6" />
             <h2 className="font-display font-bold text-2xl tracking-tight mb-2">United Kingdom</h2>
             <p className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Core Market</p>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
@@ -34,14 +34,14 @@ const Markets = () => (
             <ul className="space-y-2">
               {["Acquisition strategy & execution", "AI systems development", "Operational scaling", "Market intelligence", "Intellectual property development"].map(item => (
                 <li key={item} className="text-sm text-muted-foreground flex items-center gap-3">
-                  <span className="w-1 h-1 rounded-full bg-foreground flex-shrink-0" />
+                  <span className="w-1 h-1 rounded-full bg-primary flex-shrink-0" />
                   {item}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="bg-background p-12 lg:p-16">
-            <Globe size={28} className="text-foreground mb-6" />
+          <div className="bg-card p-12 lg:p-16">
+            <Globe size={28} className="text-primary mb-6" />
             <h2 className="font-display font-bold text-2xl tracking-tight mb-2">Australia</h2>
             <p className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Core Market</p>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
@@ -50,7 +50,7 @@ const Markets = () => (
             <ul className="space-y-2 mb-8">
               {["Acquisition execution", "Operational scaling", "Market deployment", "Performance tracking", "Intellectual property development"].map(item => (
                 <li key={item} className="text-sm text-muted-foreground flex items-center gap-3">
-                  <span className="w-1 h-1 rounded-full bg-foreground flex-shrink-0" />
+                  <span className="w-1 h-1 rounded-full bg-primary flex-shrink-0" />
                   {item}
                 </li>
               ))}
