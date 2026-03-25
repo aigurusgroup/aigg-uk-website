@@ -12,7 +12,7 @@ export const team: TeamMember[] = [
     name: "Chris Robinson",
     market: "United Kingdom",
     role: "Strategy & AI Systems",
-    focus: "Strategy, acquisitions, AI systems, market insights",
+    focus: "Technology ventures, AI strategy, business acquisition & integration",
     initials: "CR",
     isLeadership: true,
   },
@@ -24,8 +24,28 @@ export const team: TeamMember[] = [
     initials: "LR",
     isLeadership: true,
   },
+  {
+    name: "Geouffrey Erasmus",
+    market: "United Kingdom",
+    role: "Technology & Architecture",
+    focus: "Enterprise software architecture, AI & business intelligence, data engineering",
+    initials: "GE",
+  },
+  {
+    name: "Loretto Burke",
+    market: "United Kingdom",
+    role: "Finance & Governance",
+    focus: "Financial control, due diligence & deal support, treasury & risk management",
+    initials: "LB",
+  },
+  {
+    name: "Michael Bradley",
+    market: "United Kingdom",
+    role: "Operations & Investment",
+    focus: "Operator-led business scaling, acquisition judgement, multi-model operations",
+    initials: "MB",
+  },
 ];
-
 export interface Article {
   title: string;
   category: string;
