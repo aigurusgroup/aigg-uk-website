@@ -1,5 +1,4 @@
 import Layout from "@/components/Layout";
-import SectionLabel from "@/components/SectionLabel";
 import { ArrowRight } from "lucide-react";
 
 const authors = [
@@ -31,42 +30,43 @@ const authors = [
 
 const Perspectives = () => (
   <Layout>
-    <section className="section-padding min-h-[40vh] flex items-end">
-      <div className="container-narrow">
-        <SectionLabel>Perspectives</SectionLabel>
-        <h1 className="text-4xl md:text-6xl font-display text-foreground leading-[1.1]">
+    <section className="relative min-h-[40vh] flex items-end pt-16 pb-16">
+      <div className="container mx-auto px-4 lg:px-8">
+        <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3 animate-fade-in">Perspectives</p>
+        <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.08] animate-fade-in-up tracking-tight">
           Leadership Thinking
         </h1>
-        <p className="mt-6 text-lg text-muted-foreground font-body font-light max-w-xl">
+        <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
           Strategic perspectives from across the AIGG platform.
         </p>
       </div>
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-border" />
     </section>
 
-    <section className="section-padding pt-12">
-      <div className="container-narrow">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
+    <section className="py-24 bg-slate-section">
+      <div className="container mx-auto px-4 lg:px-8">
+        <div className="grid md:grid-cols-2 gap-px bg-border">
           {authors.map(author => (
-            <div key={author.name} className="bg-background p-10 md:p-14">
-              <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center mb-8">
-                <span className="text-lg font-body font-semibold text-muted-foreground">{author.initials}</span>
+            <div key={author.name} className="bg-background p-10 lg:p-14">
+              <div className="w-14 h-14 rounded-full bg-primary/5 border border-border flex items-center justify-center mb-8">
+                <span className="text-sm font-display font-semibold text-muted-foreground">{author.initials}</span>
               </div>
-              <h2 className="text-2xl font-display text-foreground">{author.name}</h2>
-              <p className="text-xs font-body font-medium uppercase tracking-widest text-accent mt-1">{author.region}</p>
-              <p className="text-sm text-muted-foreground font-body mt-1">{author.role}</p>
-              <p className="text-sm text-muted-foreground font-body mt-6 leading-relaxed">
+              <h2 className="font-display font-bold text-2xl tracking-tight">{author.name}</h2>
+              <p className="text-xs tracking-widest uppercase text-muted-foreground mt-1">{author.region}</p>
+              <p className="text-xs tracking-widest uppercase text-muted-foreground">{author.role}</p>
+              <p className="text-sm text-muted-foreground mt-6 leading-relaxed">
                 Focus: {author.focus}
               </p>
 
-              <div className="mt-10 space-y-0 divide-y divide-border">
+              <div className="mt-10 divide-y divide-border">
                 {author.articles.map(article => (
                   <div key={article.title} className="py-5 group cursor-pointer">
-                    <h3 className="text-base font-display text-foreground group-hover:text-accent transition-colors leading-snug">
+                    <h3 className="font-display font-semibold text-base text-foreground group-hover:text-primary transition-colors leading-snug tracking-tight">
                       {article.title}
                     </h3>
                     <div className="flex items-center justify-between mt-2">
-                      <span className="text-xs text-muted-foreground font-body">{article.date}</span>
-                      <ArrowRight size={12} className="text-muted-foreground group-hover:text-accent transition-colors" />
+                      <span className="text-xs text-muted-foreground">{article.date}</span>
+                      <ArrowRight size={12} className="text-muted-foreground group-hover:text-foreground transition-colors" />
                     </div>
                   </div>
                 ))}

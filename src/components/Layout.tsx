@@ -2,9 +2,9 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 const Layout = ({ children }: { children: React.ReactNode }) => (
-  <div className="min-h-screen flex flex-col">
+  <div className="min-h-screen">
     <Header />
-    <main className="flex-1 pt-16">{children}</main>
+    <main className="pt-16">{children}</main>
     <Footer />
   </div>
 );
