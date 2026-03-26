@@ -21,9 +21,10 @@ const Footer = () => (
         </div>
 
         <div>
-          <h4 className="text-primary-foreground/80 font-medium text-xs tracking-widest uppercase mb-4">Engage</h4>
+          <h4 className="text-primary-foreground/80 font-medium text-xs tracking-widest uppercase mb-4">Opportunities</h4>
           <div className="flex flex-col gap-2">
             <Link to="/sell" className="text-primary-foreground/50 hover:text-primary-foreground text-sm transition-colors">Sell Your Business</Link>
+            <Link to="/deal-sources" className="text-primary-foreground/50 hover:text-primary-foreground text-sm transition-colors">Deal Sources</Link>
             <Link to="/investors" className="text-primary-foreground/50 hover:text-primary-foreground text-sm transition-colors">Investors</Link>
             <Link to="/markets" className="text-primary-foreground/50 hover:text-primary-foreground text-sm transition-colors">Markets</Link>
           </div>

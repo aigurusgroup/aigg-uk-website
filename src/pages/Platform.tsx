@@ -1,93 +1,83 @@
 import Layout from "@/components/Layout";
-import { Target, Settings, Cpu, TrendingUp, ArrowRight, DollarSign, Layers, Globe, ShieldCheck, BarChart3, Bot, Network } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ArrowRight, Building2, Layers, Cpu, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const pillars = [
-  { icon: Target, title: "Acquisition Strategy", desc: "Systematic identification, evaluation, and acquisition of high-potential service businesses with strong fundamentals and clear growth capacity across target sectors." },
-  { icon: Settings, title: "Operational Integration", desc: "Structured post-acquisition playbooks that align operations, governance, and reporting to platform standards — reducing risk and accelerating value creation from day one." },
-  { icon: Cpu, title: "AI-Enabled Systems", desc: "Proprietary AI tools embedded across operational and decision-making layers — from workflow automation and cost reduction to real-time business intelligence." },
-  { icon: TrendingUp, title: "Platform Scaling", desc: "Data-driven strategies for continuous margin expansion, cross-portfolio leverage, and sustainable growth that compounds with every acquisition." },
+  { icon: Building2, title: "Acquisition Strategy", desc: "We acquire anchor 'platform' businesses in target verticals — strong, well-run companies that become the foundation for disciplined buy-and-build growth." },
+  { icon: Layers, title: "Operational Integration", desc: "Centralised back-office functions sit at group level. Portfolio companies retain their brand, team, and customers while benefiting from shared infrastructure." },
+  { icon: Cpu, title: "AI-Enabled Systems", desc: "Every portfolio company receives a structured AI implementation — process automation, predictive analytics, and intelligent workflows deployed within 90 days." },
+  { icon: TrendingUp, title: "Platform Scaling", desc: "Each market entry follows the same disciplined playbook: anchor acquisition, bolt-ons, AI implementation, and scale across target verticals." },
 ];
 
-const steps = [
-  { step: "01", label: "Acquire", desc: "Identify and acquire service businesses with strong fundamentals, recurring revenue, and defensible market positions." },
-  { step: "02", label: "Integrate", desc: "Deploy structured integration playbooks aligning operations, systems, governance, and reporting to platform standards." },
-  { step: "03", label: "Optimise", desc: "Implement AI-enabled systems, automation, and operational best practices to drive efficiency and margin improvement." },
-  { step: "04", label: "Scale", desc: "Execute data-driven scaling strategies, cross-portfolio leverage, and multi-market expansion for compounding growth." },
+const flowSteps = [
+  { num: "01", title: "Acquire", desc: "Identify and acquire high-quality service businesses with strong fundamentals, loyal customers, and proven cash flows." },
+  { num: "02", title: "Integrate", desc: "Centralise back-office operations, align governance, and embed the business into the AIGG platform infrastructure." },
+  { num: "03", title: "Optimise", desc: "Deploy AI systems and modern operational tools to drive efficiency, reduce cost, and improve customer outcomes." },
+  { num: "04", title: "Scale", desc: "Expand through bolt-on acquisitions, cross-selling, and platform leverage to compound value across the portfolio." },
 ];
 
 const operatingModel = [
-  { icon: DollarSign, title: "Financial Control", desc: "Centralised financial reporting, cash flow management, and performance benchmarking across every portfolio company — delivering transparency and accountability." },
-  { icon: Layers, title: "Operational Systems", desc: "Standardised operational frameworks covering HR, compliance, procurement, and service delivery — creating consistency and reducing complexity at scale." },
-  { icon: Cpu, title: "Technology Layer", desc: "AI-enabled tools and platform infrastructure deployed across the portfolio — automating workflows, surfacing insights, and creating structural cost advantages." },
+  { title: "Financial Control", desc: "Centralised financial management, reporting, and compliance across the portfolio. Standardised KPIs, cash flow oversight, and capital allocation discipline." },
+  { title: "Operational Systems", desc: "Shared services for HR, marketing, procurement, and administration. Portfolio companies focus on delivery while the platform handles infrastructure." },
+  { title: "Technology Layer", desc: "AI-enabled automation, customer analytics, workflow management, and intelligent systems deployed across every portfolio company." },
 ];
 
-const valueCreation = [
-  { icon: ShieldCheck, title: "Disciplined Acquisition", desc: "Every acquisition follows a rigorous evaluation framework focused on sustainable cash flows, defensible positions, and integration readiness." },
-  { icon: BarChart3, title: "Operational Improvement", desc: "Centralised operations, standardised reporting, and best-practice implementation drive measurable performance gains across every portfolio company." },
-  { icon: Bot, title: "AI-Driven Efficiency", desc: "Purpose-built AI systems eliminate manual processes, reduce cost bases, and create structural advantages that compound over time." },
-  { icon: Network, title: "Platform Leverage", desc: "Shared infrastructure, cross-portfolio learnings, and centralised support functions create value that grows with every acquisition." },
+const valueDrivers = [
+  { num: "01", title: "Disciplined Acquisition", desc: "We target businesses with strong fundamentals, proven cash flows, and embedded customer relationships in fragmented markets." },
+  { num: "02", title: "Operational Improvement", desc: "Centralised operations, shared services, and professional management lift margins and reduce overhead across the portfolio." },
+  { num: "03", title: "AI-Driven Efficiency", desc: "Structured AI deployment drives efficiency, reduces cost, and creates measurable value within 90 days of acquisition." },
+  { num: "04", title: "Platform Leverage", desc: "Cross-selling, shared infrastructure, and compounding scale advantages create value beyond what any single business could achieve." },
 ];
 
 const Platform = () => (
   <Layout>
     {/* Hero */}
-    <section className="relative min-h-[70vh] flex items-center pt-20">
+    <section className="pt-28 pb-20 bg-card">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="max-w-3xl">
-          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-6 animate-fade-in">
-            Platform
-          </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.08] mb-6 animate-fade-in-up tracking-tight">
-            The AIGG Platform
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mb-10 animate-fade-in-up leading-relaxed" style={{ animationDelay: "0.1s" }}>
+        <div className="max-w-2xl">
+          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Platform & Strategy</p>
+          <h1 className="text-4xl lg:text-5xl font-display font-bold tracking-tight mb-6">The AIGG Platform</h1>
+          <p className="text-muted-foreground leading-relaxed">
             A structured approach to acquiring, integrating, and scaling service businesses.
           </p>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-border" />
     </section>
 
+    <div className="h-px bg-border" />
+
     {/* Platform Overview */}
-    <section className="py-24 bg-slate-section">
+    <section className="py-24 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="max-w-3xl">
+        <div className="max-w-2xl">
           <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Overview</p>
-          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-8">
-            A System, Not a Series of Deals
-          </h2>
-          <div className="space-y-5 text-muted-foreground leading-relaxed">
-            <p>
-              AIGG is not a collection of individual acquisitions. It is a platform — a structured, repeatable system designed to acquire, integrate, and scale service businesses across multiple markets.
-            </p>
-            <p>
-              Every component of the platform is purpose-built: from how we identify and evaluate opportunities, to how we integrate operations, deploy technology, and create long-term value. The result is a scalable engine that improves with every acquisition.
-            </p>
-            <p>
-              This systems-first approach means that each new business benefits from the infrastructure, expertise, and AI-enabled tools that already exist across the portfolio — creating compounding operational leverage and sustainable competitive advantage.
-            </p>
-          </div>
+          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-6">A System, Not a Series of Deals</h2>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            AIGG is not a collection of disconnected acquisitions. It is a platform — a structured system designed to acquire, integrate, and scale service businesses using a repeatable and disciplined methodology.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            Every business that enters the platform benefits from centralised operations, AI-enabled systems, and the compounding advantages of portfolio scale. The result is a platform that creates more value than the sum of its parts.
+          </p>
         </div>
       </div>
     </section>
 
-    {/* Four Pillars */}
-    <section className="py-24">
+    {/* Four Pillars — Navy */}
+    <section className="py-24 bg-navy text-primary-foreground">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="mb-16">
-          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Platform Pillars</p>
-          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">Four Pillars of Execution</h2>
+        <div className="mb-16 max-w-2xl">
+          <p className="text-xs font-medium tracking-[0.3em] uppercase text-primary-foreground/50 mb-3">Core Pillars</p>
+          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">Four Pillars of the Platform</h2>
         </div>
-        <div className="grid sm:grid-cols-2 gap-px bg-border">
-          {pillars.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="bg-background p-10">
-              <div className="w-12 h-12 flex items-center justify-center bg-primary/5 border border-border mb-6">
-                <Icon className="text-foreground" size={22} />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-primary-foreground/10">
+          {pillars.map((pillar, i) => (
+            <div key={i} className="bg-navy-mid p-8">
+              <div className="w-11 h-11 flex items-center justify-center border border-primary-foreground/15 mb-5">
+                <pillar.icon className="text-primary" size={20} />
               </div>
-              <h3 className="font-display font-semibold text-lg mb-2 tracking-tight">{title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
+              <h3 className="font-display font-bold text-lg mb-3 tracking-tight">{pillar.title}</h3>
+              <p className="text-primary-foreground/60 text-sm leading-relaxed">{pillar.desc}</p>
             </div>
           ))}
         </div>
@@ -95,65 +85,68 @@ const Platform = () => (
     </section>
 
     {/* How the Platform Works */}
-    <section className="py-24 bg-navy text-primary-foreground">
+    <section className="py-24 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="mb-16">
-          <p className="text-xs font-medium tracking-[0.3em] uppercase text-primary-foreground/40 mb-3">Process</p>
+        <div className="mb-16 max-w-2xl">
+          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Operating Model</p>
           <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">How the Platform Works</h2>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-primary-foreground/10">
-          {steps.map(({ step, label, desc }) => (
-            <div key={step} className="bg-navy p-8">
-              <span className="text-xs font-medium tracking-[0.2em] text-primary-foreground/30 mb-4 block">{step}</span>
-              <h3 className="font-display font-bold text-xl mt-2 mb-3 tracking-tight">{label}</h3>
-              <p className="text-primary-foreground/50 text-sm leading-relaxed">{desc}</p>
+        <div className="hidden lg:flex items-center justify-center gap-4 mb-12">
+          {flowSteps.map((step, i) => (
+            <div key={i} className="flex items-center gap-4">
+              <span className="font-display font-bold text-sm tracking-tight">{step.title}</span>
+              {i < flowSteps.length - 1 && <ArrowRight size={16} className="text-primary" />}
             </div>
           ))}
         </div>
-        <div className="mt-16 text-center">
-          <blockquote className="text-xl lg:text-2xl font-display font-semibold tracking-tight text-primary-foreground/80 italic">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+          {flowSteps.map((step) => (
+            <div key={step.num} className="bg-card p-8">
+              <span className="font-display text-muted-foreground/20 font-bold text-4xl block mb-3">{step.num}</span>
+              <h3 className="font-display font-bold text-lg mb-3 tracking-tight">{step.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-16 pt-12 border-t border-border text-center">
+          <p className="font-display text-xl lg:text-2xl font-bold tracking-tight">
             "We don't sell AI — we use AI to build better businesses."
-          </blockquote>
+          </p>
         </div>
       </div>
     </section>
 
     {/* Operating Model */}
-    <section className="py-24">
+    <section className="py-24 bg-card">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="mb-16">
-          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Operating Model</p>
-          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">Platform Infrastructure</h2>
+        <div className="mb-16 max-w-2xl">
+          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Infrastructure</p>
+          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">Operating Model</h2>
         </div>
         <div className="grid lg:grid-cols-3 gap-px bg-border">
-          {operatingModel.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="bg-background p-10">
-              <div className="w-12 h-12 flex items-center justify-center bg-primary/5 border border-border mb-6">
-                <Icon className="text-foreground" size={22} />
-              </div>
-              <h3 className="font-display font-semibold text-lg mb-2 tracking-tight">{title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
+          {operatingModel.map((item, i) => (
+            <div key={i} className="bg-background p-10">
+              <h3 className="font-display font-bold text-lg mb-3 tracking-tight">{item.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    {/* Value Creation */}
-    <section className="py-24 bg-slate-section">
+    {/* Value Creation — Navy */}
+    <section className="py-24 bg-navy text-primary-foreground">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="mb-16">
-          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Value Creation</p>
-          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">How Value Is Created</h2>
+        <div className="mb-16 max-w-2xl">
+          <p className="text-xs font-medium tracking-[0.3em] uppercase text-primary-foreground/50 mb-3">Returns</p>
+          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">Value Creation</h2>
         </div>
-        <div className="grid sm:grid-cols-2 gap-px bg-border">
-          {valueCreation.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="bg-background p-10">
-              <div className="w-12 h-12 flex items-center justify-center bg-primary/5 border border-border mb-6">
-                <Icon className="text-foreground" size={22} />
-              </div>
-              <h3 className="font-display font-semibold text-lg mb-2 tracking-tight">{title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-primary-foreground/10">
+          {valueDrivers.map((driver) => (
+            <div key={driver.num} className="bg-navy-mid p-8">
+              <span className="font-display text-primary-foreground/15 font-bold text-4xl block mb-3">{driver.num}</span>
+              <h3 className="font-display font-bold text-lg mb-3 tracking-tight">{driver.title}</h3>
+              <p className="text-primary-foreground/60 text-sm leading-relaxed">{driver.desc}</p>
             </div>
           ))}
         </div>
@@ -161,57 +154,38 @@ const Platform = () => (
     </section>
 
     {/* Multi-Market Platform */}
-    <section className="py-24">
+    <section className="py-24 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <div>
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Multi-Market</p>
-            <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-8">
-              Core Markets. Independent Execution.
-            </h2>
-            <div className="space-y-5 text-muted-foreground leading-relaxed">
-              <p>
-                AIGG operates across the United Kingdom and Australia as core markets — each with full capability across acquisitions, strategy, AI systems, and execution.
-              </p>
-              <p>
-                Markets operate independently, developing and retaining their own intellectual property while sharing strategic frameworks and platform infrastructure. There is no hierarchy between markets — each contributes to and benefits from the platform equally.
-              </p>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-px bg-border">
-            {[
-              { market: "United Kingdom", label: "Core Market" },
-              { market: "Australia", label: "Core Market" },
-            ].map(({ market, label }) => (
-              <div key={market} className="bg-slate-section p-8 text-center">
-                <Globe className="mx-auto mb-4 text-muted-foreground" size={28} />
-                <p className="font-display font-semibold text-sm tracking-tight">{market}</p>
-                <p className="text-xs text-muted-foreground mt-1">{label}</p>
-              </div>
-            ))}
-          </div>
+        <div className="max-w-2xl">
+          <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Scale</p>
+          <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-6">Multi-Market Platform</h2>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            AIGG operates as a multi-market platform where each region functions as a core market with independent execution capability and localised intellectual property.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            Markets share a common acquisition playbook, operational framework, and AI implementation methodology — while retaining the autonomy to execute within their local context. This model enables disciplined scaling without sacrificing local relevance.
+          </p>
         </div>
       </div>
     </section>
 
     {/* Final CTA */}
-    <section className="py-24 bg-navy text-primary-foreground">
-      <div className="container mx-auto px-4 lg:px-8 text-center max-w-2xl">
-        <p className="text-xs font-medium tracking-[0.3em] uppercase text-primary-foreground/40 mb-3">Get Involved</p>
-        <h2 className="text-2xl lg:text-3xl font-display font-bold tracking-tight mb-4">
+    <section className="py-24 bg-card">
+      <div className="container mx-auto px-4 lg:px-8 text-center">
+        <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-4">
           Explore the Platform
         </h2>
-        <p className="text-primary-foreground/50 text-sm leading-relaxed mb-10">
-          Whether you're considering selling your business or exploring investment opportunities, we'd welcome the conversation.
+        <p className="text-muted-foreground mb-10 max-w-xl mx-auto">
+          Whether you're a business owner considering a transition or an investor seeking structured acquisition exposure.
         </p>
-        <div className="flex justify-center gap-4 flex-wrap">
+        <div className="flex flex-wrap justify-center gap-3">
           <Link to="/sell">
-            <Button variant="premium-white" size="lg">
+            <Button variant="premium" size="lg">
               Sell Your Business <ArrowRight className="ml-1" size={14} />
             </Button>
           </Link>
           <Link to="/investors">
-            <Button variant="premium-outline" size="lg" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground hover:text-foreground">
+            <Button variant="premium-outline" size="lg">
               Investor Information <ArrowRight className="ml-1" size={14} />
             </Button>
           </Link>

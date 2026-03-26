@@ -12,12 +12,13 @@ const navLinks = [
   { label: "About", href: "/about" },
 ];
 
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/40">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
         <Link to="/" className="flex items-center gap-3">
           <span className="font-display font-bold text-lg tracking-tight text-foreground">AIGG</span>
@@ -38,7 +39,7 @@ const Header = () => {
               {link.label}
             </Link>
           ))}
-          <Link to="/sell">
+          <Link to="/deal-sources">
             <Button variant="nav" size="sm">Submit Opportunity</Button>
           </Link>
         </div>
@@ -49,7 +50,7 @@ const Header = () => {
       </div>
 
       {isOpen && (
-        <div className="lg:hidden bg-background border-b border-border px-4 pb-4 animate-fade-in">
+        <div className="lg:hidden bg-card border-b border-border px-4 pb-4 animate-fade-in">
           {navLinks.map((link) => (
             <Link
               key={link.label}
@@ -60,7 +61,7 @@ const Header = () => {
               {link.label}
             </Link>
           ))}
-          <Link to="/sell" onClick={() => setIsOpen(false)}>
+          <Link to="/deal-sources" onClick={() => setIsOpen(false)}>
             <Button variant="nav" size="sm" className="mt-2 w-full">Submit Opportunity</Button>
           </Link>
         </div>
