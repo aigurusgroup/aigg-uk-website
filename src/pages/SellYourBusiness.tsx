@@ -1,117 +1,140 @@
 import Layout from "@/components/Layout";
-import { ArrowRight, Clock, Shield, Cog, Settings2, CheckCircle2, Heart, MessageSquare, FileSearch, Handshake, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ArrowRight, Check, Shield, Layers, Cpu, Settings } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { z } from "zod";
 
-const whyAigg = [
-  { icon: Clock, title: "Long-Term Focus", desc: "We acquire to build — not to flip. Our commitment is to grow businesses over the long term, preserving what makes them valuable while unlocking new potential." },
-  { icon: Shield, title: "Structured Approach", desc: "Every transition follows a clear, documented process. From initial conversation through to completion, you'll know exactly where things stand at every stage." },
-  { icon: Cog, title: "Operational Expertise", desc: "We bring proven operational systems, AI-enabled tools, and centralised support functions that strengthen businesses from within — without disrupting what already works." },
-  { icon: Settings2, title: "Flexible Structures", desc: "We understand that every business and owner is different. We work collaboratively to find deal structures that reflect your priorities and circumstances." },
+const whyPillars = [
+  { icon: Shield, title: "Long-Term Focus", description: "We acquire to build — not to flip. Our model is centred on sustainable growth and long-term value creation." },
+  { icon: Layers, title: "Structured Approach", description: "Every acquisition follows a disciplined process — from initial discussion through to integration and growth." },
+  { icon: Cpu, title: "Operational Expertise", description: "Our platform provides centralised operations, AI-enabled systems, and hands-on support from experienced operators." },
+  { icon: Settings, title: "Flexible Structures", description: "Full exit, partial exit, or earnout — we tailor deal structures to meet the needs and goals of every owner." },
 ];
 
 const processSteps = [
-  { step: "01", icon: MessageSquare, title: "Initial Discussion", desc: "A confidential conversation to understand your business, your goals, and whether there's a potential fit." },
-  { step: "02", icon: FileSearch, title: "Review", desc: "A structured review of your business including financials, operations, customers, and growth potential." },
-  { step: "03", icon: Handshake, title: "Structure", desc: "We work together to agree commercial terms and a deal structure that reflects mutual interests." },
-  { step: "04", icon: RefreshCw, title: "Transition", desc: "A managed transition with full operational support, ensuring continuity for your team, customers, and stakeholders." },
+  { num: "01", title: "Initial Discussion", desc: "A confidential conversation to understand your business, goals, and timeline." },
+  { num: "02", title: "Review", desc: "We assess fit, fundamentals, and alignment with the AIGG platform strategy." },
+  { num: "03", title: "Structure", desc: "We propose a deal structure tailored to your objectives and circumstances." },
+  { num: "04", title: "Transition", desc: "Smooth handover with continuity planning, team support, and operational integration." },
 ];
 
-const criteria = [
-  "Recurring or consistent revenue streams",
-  "Established and loyal customer base",
-  "Proven operational track record",
-  "Clear opportunity for growth or improvement",
+const lookingFor = [
+  "Recurring or consistent revenue",
+  "Established customer base",
+  "Proven operations",
+  "Growth opportunity",
 ];
+
+const revenueOptions = ["Under £500K", "£500K – £1M", "£1M – £3M", "£3M – £5M", "£5M – £10M", "£10M+"];
+const ebitdaOptions = ["Under £100K", "£100K – £250K", "£250K – £500K", "£500K – £1M", "£1M+"];
+const timeframeOptions = ["Immediately", "3–6 months", "6–12 months", "12+ months", "Just exploring"];
+
+const formSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100),
+  email: z.string().trim().email("Invalid email address").max(255),
+  phone: z.string().trim().max(30).optional(),
+  businessName: z.string().trim().max(200).optional(),
+  industry: z.string().trim().max(100).optional(),
+  revenue: z.string().optional(),
+  ebitda: z.string().optional(),
+  location: z.string().trim().max(200).optional(),
+  ownership: z.string().trim().max(20).optional(),
+  timeframe: z.string().optional(),
+  notes: z.string().trim().max(2000).optional(),
+});
 
 const SellYourBusiness = () => {
   const { toast } = useToast();
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
     name: "", email: "", phone: "", businessName: "", industry: "",
-    revenueRange: "", ebitdaRange: "", location: "", ownership: "",
-    timeline: "", notes: "",
+    revenue: "", ebitda: "", location: "", ownership: "", timeframe: "", notes: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "Submission Received", description: "Thank you. We'll be in touch within 24–48 hours." });
-    setFormData({ name: "", email: "", phone: "", businessName: "", industry: "", revenueRange: "", ebitdaRange: "", location: "", ownership: "", timeline: "", notes: "" });
+    const result = formSchema.safeParse(formData);
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      result.error.errors.forEach(err => {
+        if (err.path[0]) fieldErrors[err.path[0] as string] = err.message;
+      });
+      setErrors(fieldErrors);
+      return;
+    }
+    setErrors({});
+    toast({ title: "Submission received", description: "We'll be in touch within 24–48 hours for a confidential discussion." });
+    setFormData({ name: "", email: "", phone: "", businessName: "", industry: "", revenue: "", ebitda: "", location: "", ownership: "", timeframe: "", notes: "" });
   };
 
-  const update = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-    setFormData((prev) => ({ ...prev, [field]: e.target.value }));
-
-  const updateSelect = (field: string) => (val: string) =>
-    setFormData((prev) => ({ ...prev, [field]: val }));
+  const updateField = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+    if (errors[field]) setErrors(prev => ({ ...prev, [field]: "" }));
+  };
 
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center pt-20">
+      <section className="pt-28 pb-20 bg-card">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-6 animate-fade-in">
-              Sell Your Business
-            </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.08] mb-6 animate-fade-in-up tracking-tight">
+          <div className="max-w-2xl">
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">For Business Owners</p>
+            <h1 className="text-4xl lg:text-5xl font-display font-bold tracking-tight mb-6">
               Considering Selling Your Business?
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mb-10 animate-fade-in-up leading-relaxed" style={{ animationDelay: "0.1s" }}>
+            <p className="text-muted-foreground leading-relaxed mb-8">
               We partner with business owners to transition, grow, and scale businesses through a structured and thoughtful approach.
             </p>
-            <a href="#enquiry-form" className="animate-fade-in-up inline-block" style={{ animationDelay: "0.2s" }}>
+            <a href="#contact-form">
               <Button variant="premium" size="lg">
                 Start a Confidential Discussion <ArrowRight className="ml-1" size={14} />
               </Button>
             </a>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-border" />
       </section>
 
-      {/* A Different Approach */}
-      <section className="py-24 bg-slate-section">
+      <div className="h-px bg-border" />
+
+      {/* Approach */}
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl">
+          <div className="max-w-2xl">
             <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Our Approach</p>
-            <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-8">
+            <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-6">
               A Different Approach to Business Transitions
             </h2>
-            <div className="space-y-5 text-muted-foreground leading-relaxed">
-              <p>
-                Selling a business is one of the most significant decisions an owner can make. We understand that it's not just a financial transaction — it involves people, relationships, and the legacy you've built over years of hard work.
-              </p>
-              <p>
-                AIGG takes a long-term approach to every acquisition. We focus on continuity, operational improvement, and structured growth — ensuring that businesses continue to thrive under new ownership while respecting the foundations that made them successful.
-              </p>
-              <p>
-                Our model is built around partnership, not disruption. We work closely with owners through every stage of the process to ensure a transition that reflects your priorities and protects what matters most.
-              </p>
-            </div>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              We believe in long-term value creation — not short-term financial engineering. When we acquire a business, we're investing in its future, its people, and its customers.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Our platform provides the operational infrastructure, AI-enabled systems, and strategic support to help businesses grow well beyond what they could achieve independently. We focus on continuity, structured growth, and building something that lasts.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Why AIGG */}
-      <section className="py-24">
+      {/* Why AIGG — Navy */}
+      <section className="py-24 bg-navy text-primary-foreground">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="mb-16">
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Why AIGG</p>
-            <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">Why Business Owners Choose AIGG</h2>
+          <div className="mb-16 max-w-2xl">
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-primary-foreground/50 mb-3">Why AIGG</p>
+            <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-4">
+              Why Business Owners Choose AIGG
+            </h2>
           </div>
-          <div className="grid sm:grid-cols-2 gap-px bg-border">
-            {whyAigg.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="bg-background p-10">
-                <div className="w-12 h-12 flex items-center justify-center bg-primary/5 border border-border mb-6">
-                  <Icon className="text-foreground" size={22} />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-primary-foreground/10">
+            {whyPillars.map((pillar, i) => (
+              <div key={i} className="bg-navy-mid p-8">
+                <div className="w-11 h-11 flex items-center justify-center border border-primary-foreground/15 mb-5">
+                  <pillar.icon className="text-primary" size={20} />
                 </div>
-                <h3 className="font-display font-semibold text-lg mb-2 tracking-tight">{title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
+                <h3 className="font-display font-bold text-lg mb-3 tracking-tight">{pillar.title}</h3>
+                <p className="text-primary-foreground/60 text-sm leading-relaxed">{pillar.description}</p>
               </div>
             ))}
           </div>
@@ -119,21 +142,26 @@ const SellYourBusiness = () => {
       </section>
 
       {/* Process */}
-      <section className="py-24 bg-navy text-primary-foreground">
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="mb-16">
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-primary-foreground/40 mb-3">Process</p>
+          <div className="mb-16 max-w-2xl">
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">How It Works</p>
             <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">Our Process</h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-primary-foreground/10">
-            {processSteps.map(({ step, icon: Icon, title, desc }) => (
-              <div key={step} className="bg-navy p-8">
-                <span className="text-xs font-medium tracking-[0.2em] text-primary-foreground/30 mb-4 block">{step}</span>
-                <div className="w-10 h-10 flex items-center justify-center border border-primary-foreground/10 mb-5">
-                  <Icon className="text-primary-foreground/70" size={18} />
-                </div>
-                <h3 className="font-display font-semibold text-base mb-2 tracking-tight">{title}</h3>
-                <p className="text-primary-foreground/50 text-sm leading-relaxed">{desc}</p>
+          <div className="hidden lg:flex items-center justify-center gap-4 mb-12">
+            {processSteps.map((step, i) => (
+              <div key={i} className="flex items-center gap-4">
+                <span className="font-display font-bold text-sm tracking-tight">{step.title}</span>
+                {i < processSteps.length - 1 && <ArrowRight size={16} className="text-primary" />}
+              </div>
+            ))}
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+            {processSteps.map((step) => (
+              <div key={step.num} className="bg-card p-8">
+                <span className="font-display text-muted-foreground/20 font-bold text-4xl block mb-3">{step.num}</span>
+                <h3 className="font-display font-bold text-lg mb-3 tracking-tight">{step.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -141,189 +169,128 @@ const SellYourBusiness = () => {
       </section>
 
       {/* What We Look For */}
-      <section className="py-24">
+      <section className="py-24 bg-card">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl">
+          <div className="max-w-2xl">
             <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Criteria</p>
-            <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-10">What We Look For</h2>
-            <div className="space-y-5">
-              {criteria.map((item) => (
-                <div key={item} className="flex items-start gap-4">
-                  <CheckCircle2 className="text-primary shrink-0 mt-0.5" size={20} />
-                  <p className="text-foreground leading-relaxed">{item}</p>
-                </div>
+            <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-6">What We Look For</h2>
+            <ul className="space-y-3 mb-6">
+              {lookingFor.map((item, i) => (
+                <li key={i} className="flex items-start gap-3 text-foreground text-sm">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                  {item}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </section>
 
       {/* Reassurance */}
-      <section className="py-24 bg-slate-section">
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl">
-            <div className="flex items-start gap-5 mb-8">
-              <div className="w-12 h-12 flex items-center justify-center bg-primary/5 border border-border shrink-0 mt-1">
-                <Heart className="text-foreground" size={22} />
-              </div>
-              <div>
-                <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">What Matters to Us</p>
-                <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">
-                  Legacy. Relationships. Continuity.
-                </h2>
-              </div>
-            </div>
-            <div className="space-y-5 text-muted-foreground leading-relaxed pl-[68px]">
-              <p>
-                We recognise that behind every business is a team, a customer base, and a community that depend on it. Our approach is built on respect for what you've created and a genuine commitment to its future.
-              </p>
-              <p>
-                We take time to understand the culture, the people, and the relationships that define your business — and we build transition plans that protect and strengthen them through the process and beyond.
-              </p>
-            </div>
+          <div className="max-w-2xl">
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Our Commitment</p>
+            <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-6">What Matters to Us</h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              We understand that selling a business is more than a financial transaction. It represents years of work, relationships, and trust that you've built within your community.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              That's why we prioritise continuity — for your team, your customers, and your legacy. Every transition is handled with discretion, respect, and a genuine commitment to the long-term success of the business.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-24 bg-navy text-primary-foreground">
-        <div className="container mx-auto px-4 lg:px-8 text-center max-w-2xl">
-          <p className="text-xs font-medium tracking-[0.3em] uppercase text-primary-foreground/40 mb-3">Get in Touch</p>
-          <h2 className="text-2xl lg:text-3xl font-display font-bold tracking-tight mb-4">
-            Start a Confidential Conversation
-          </h2>
-          <p className="text-primary-foreground/50 text-sm leading-relaxed mb-10">
-            All discussions are private and handled with discretion. There is no obligation and no pressure — just a genuine conversation about your options.
-          </p>
-          <a href="#enquiry-form">
-            <Button variant="premium-white" size="lg">
-              Start a Confidential Discussion <ArrowRight className="ml-1" size={14} />
-            </Button>
-          </a>
-        </div>
-      </section>
-
-      {/* Enquiry Form */}
-      <section id="enquiry-form" className="py-24">
+      {/* Final CTA + Form — Navy */}
+      <section id="contact-form" className="py-24 bg-navy text-primary-foreground">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-2xl mx-auto">
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Submit</p>
-            <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-4">
-              Submit Your Business
+            <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-3">
+              Start a Confidential Conversation
             </h2>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-10">
-              Complete the form below and a member of our team will be in touch. All information is treated as strictly confidential.
+            <p className="text-primary-foreground/60 text-sm mb-10">
+              All discussions are private and handled with discretion.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="name" className="text-xs font-medium tracking-wide uppercase">Name</Label>
-                  <Input id="name" placeholder="Full name" value={formData.name} onChange={update("name")} required />
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Name *</Label>
+                  <Input className="mt-1.5 bg-navy-mid border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30" required value={formData.name} onChange={e => updateField("name", e.target.value)} />
+                  {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-xs font-medium tracking-wide uppercase">Email</Label>
-                  <Input id="email" type="email" placeholder="Email address" value={formData.email} onChange={update("email")} required />
-                </div>
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="phone" className="text-xs font-medium tracking-wide uppercase">Phone</Label>
-                  <Input id="phone" type="tel" placeholder="Phone number" value={formData.phone} onChange={update("phone")} />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="businessName" className="text-xs font-medium tracking-wide uppercase">Business Name</Label>
-                  <Input id="businessName" placeholder="Business name" value={formData.businessName} onChange={update("businessName")} />
+                <div>
+                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Email *</Label>
+                  <Input className="mt-1.5 bg-navy-mid border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30" type="email" required value={formData.email} onChange={e => updateField("email", e.target.value)} />
+                  {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="industry" className="text-xs font-medium tracking-wide uppercase">Industry</Label>
-                  <Input id="industry" placeholder="e.g. Professional Services" value={formData.industry} onChange={update("industry")} />
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Phone</Label>
+                  <Input className="mt-1.5 bg-navy-mid border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30" value={formData.phone} onChange={e => updateField("phone", e.target.value)} />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="location" className="text-xs font-medium tracking-wide uppercase">Location</Label>
-                  <Input id="location" placeholder="City or region" value={formData.location} onChange={update("location")} />
-                </div>
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label className="text-xs font-medium tracking-wide uppercase">Revenue Range</Label>
-                  <Select value={formData.revenueRange} onValueChange={updateSelect("revenueRange")}>
-                    <SelectTrigger><SelectValue placeholder="Select range" /></SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="under-500k">Under £500k</SelectItem>
-                      <SelectItem value="500k-1m">£500k – £1m</SelectItem>
-                      <SelectItem value="1m-3m">£1m – £3m</SelectItem>
-                      <SelectItem value="3m-5m">£3m – £5m</SelectItem>
-                      <SelectItem value="5m-10m">£5m – £10m</SelectItem>
-                      <SelectItem value="10m-plus">£10m+</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="space-y-2">
-                  <Label className="text-xs font-medium tracking-wide uppercase">EBITDA Range</Label>
-                  <Select value={formData.ebitdaRange} onValueChange={updateSelect("ebitdaRange")}>
-                    <SelectTrigger><SelectValue placeholder="Select range" /></SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="under-100k">Under £100k</SelectItem>
-                      <SelectItem value="100k-250k">£100k – £250k</SelectItem>
-                      <SelectItem value="250k-500k">£250k – £500k</SelectItem>
-                      <SelectItem value="500k-1m">£500k – £1m</SelectItem>
-                      <SelectItem value="1m-plus">£1m+</SelectItem>
-                    </SelectContent>
-                  </Select>
+                <div>
+                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Business Name</Label>
+                  <Input className="mt-1.5 bg-navy-mid border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30" value={formData.businessName} onChange={e => updateField("businessName", e.target.value)} />
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label className="text-xs font-medium tracking-wide uppercase">Ownership %</Label>
-                  <Select value={formData.ownership} onValueChange={updateSelect("ownership")}>
-                    <SelectTrigger><SelectValue placeholder="Select ownership" /></SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="100">100% (Sole Owner)</SelectItem>
-                      <SelectItem value="majority">Majority Stake</SelectItem>
-                      <SelectItem value="minority">Minority Stake</SelectItem>
-                      <SelectItem value="partnership">Partnership</SelectItem>
-                    </SelectContent>
-                  </Select>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Industry</Label>
+                  <Input className="mt-1.5 bg-navy-mid border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30" value={formData.industry} onChange={e => updateField("industry", e.target.value)} />
                 </div>
-                <div className="space-y-2">
-                  <Label className="text-xs font-medium tracking-wide uppercase">Timeline</Label>
-                  <Select value={formData.timeline} onValueChange={updateSelect("timeline")}>
-                    <SelectTrigger><SelectValue placeholder="Select timeline" /></SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="immediate">Immediate (0–3 months)</SelectItem>
-                      <SelectItem value="near-term">Near-term (3–6 months)</SelectItem>
-                      <SelectItem value="medium-term">Medium-term (6–12 months)</SelectItem>
-                      <SelectItem value="exploratory">Exploratory (12+ months)</SelectItem>
-                    </SelectContent>
-                  </Select>
+                <div>
+                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Location</Label>
+                  <Input className="mt-1.5 bg-navy-mid border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30" value={formData.location} onChange={e => updateField("location", e.target.value)} />
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="notes" className="text-xs font-medium tracking-wide uppercase">Notes</Label>
-                <Textarea
-                  id="notes"
-                  placeholder="Anything else you'd like us to know"
-                  rows={4}
-                  value={formData.notes}
-                  onChange={update("notes")}
-                />
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Revenue Range</Label>
+                  <select className="mt-1.5 w-full h-10 rounded-md border border-primary-foreground/15 bg-navy-mid px-3 text-sm text-primary-foreground" value={formData.revenue} onChange={e => updateField("revenue", e.target.value)}>
+                    <option value="">Select...</option>
+                    {revenueOptions.map(o => <option key={o} value={o}>{o}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">EBITDA Range</Label>
+                  <select className="mt-1.5 w-full h-10 rounded-md border border-primary-foreground/15 bg-navy-mid px-3 text-sm text-primary-foreground" value={formData.ebitda} onChange={e => updateField("ebitda", e.target.value)}>
+                    <option value="">Select...</option>
+                    {ebitdaOptions.map(o => <option key={o} value={o}>{o}</option>)}
+                  </select>
+                </div>
               </div>
 
-              <Button type="submit" variant="premium" size="lg" className="w-full sm:w-auto">
-                Submit Opportunity <ArrowRight className="ml-1" size={14} />
-              </Button>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Ownership % Available</Label>
+                  <Input className="mt-1.5 bg-navy-mid border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30" value={formData.ownership} onChange={e => updateField("ownership", e.target.value)} />
+                </div>
+                <div>
+                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Timeline</Label>
+                  <select className="mt-1.5 w-full h-10 rounded-md border border-primary-foreground/15 bg-navy-mid px-3 text-sm text-primary-foreground" value={formData.timeframe} onChange={e => updateField("timeframe", e.target.value)}>
+                    <option value="">Select...</option>
+                    {timeframeOptions.map(o => <option key={o} value={o}>{o}</option>)}
+                  </select>
+                </div>
+              </div>
 
-              <p className="text-xs text-muted-foreground mt-4">
-                We typically respond within 24–48 hours. All information is treated as strictly confidential.
-              </p>
+              <div>
+                <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Notes</Label>
+                <Textarea className="mt-1.5 bg-navy-mid border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30" rows={4} placeholder="Anything else you'd like us to know..." value={formData.notes} onChange={e => updateField("notes", e.target.value)} />
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <Button variant="premium" size="lg" type="submit">
+                  Submit Confidentially <ArrowRight className="ml-1" size={14} />
+                </Button>
+                <p className="text-primary-foreground/40 text-xs">We typically respond within 24–48 hours.</p>
+              </div>
             </form>
           </div>
         </div>
