@@ -472,7 +472,7 @@ const Index = () => {
             <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight">Leadership</h2>
           </div>
           <div className="grid lg:grid-cols-2 gap-6">
-            {team.filter(m => m.isLeadership).map((leader) => (
+            {team.map((leader) => (
               <div key={leader.name} className="border border-border bg-card p-8">
                 <h3 className="font-display font-bold text-lg tracking-tight mb-1">{leader.name}</h3>
                 <p className="text-xs tracking-widest uppercase text-muted-foreground mb-4">{leader.role} — {leader.market}</p>
