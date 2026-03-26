@@ -12,6 +12,7 @@ const navLinks = [
   { label: "About", href: "/about" },
 ];
 
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
