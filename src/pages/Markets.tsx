@@ -3,14 +3,14 @@ import Layout from "@/components/Layout";
 const markets = [
   {
     name: "United Kingdom",
-    hq: "London, UK",
+    hq: "National",
     lead: "Chris Robinson",
     sectors: ["Professional Services", "Property Services", "Home Improvement", "Technology Services"],
     description: "AIGG United Kingdom operates as a core market with full capability across acquisitions, strategy, AI systems, and execution. Building scale across fragmented UK service verticals through disciplined buy-and-build.",
   },
   {
     name: "Australia",
-    hq: "Brisbane, QLD",
+    hq: "National",
     lead: "Lee Robinson",
     sectors: ["Accountancy", "Conveyancing / Legal", "Surveying", "RTO / Education"],
     description: "AIGG Australia operates as a core market with full capability across acquisitions, strategy, AI systems, and execution. Focused on acquiring and scaling service businesses across key sectors in the Australian economy.",

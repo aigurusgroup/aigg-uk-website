@@ -92,7 +92,7 @@ const About = () => (
       <div className="container mx-auto px-4 lg:px-8 max-w-3xl text-center">
         <p className="text-xs font-medium tracking-[0.3em] uppercase text-primary-foreground/50 mb-3">Long-Term Vision</p>
         <h2 className="text-2xl lg:text-3xl font-display font-bold tracking-tight mb-6 text-primary-foreground">
-          Building a multi-vertical, AI-enabled services platform — starting in London, scaling nationally.
+          Building a multi-vertical, AI-enabled services platform — scaling nationally across core markets.
         </h2>
         <p className="text-primary-foreground/50 text-sm leading-relaxed mb-10">
           We see a future where the UK's best service businesses are connected through shared technology, shared services, and a shared commitment to excellence.
