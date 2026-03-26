@@ -222,8 +222,8 @@ const Index = () => {
           </div>
           <div className="grid sm:grid-cols-2 gap-px bg-border">
             {[
-              { name: "United Kingdom", location: "London, UK", status: "Core Market" },
-              { name: "Australia", location: "Brisbane, QLD", status: "Core Market" },
+              { name: "United Kingdom", location: "National", status: "Core Market" },
+              { name: "Australia", location: "National", status: "Core Market" },
             ].map((m) => (
               <div key={m.name} className="bg-card p-10">
                 <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground">{m.status}</span>
@@ -369,11 +369,11 @@ const Index = () => {
           <div className="grid sm:grid-cols-2 gap-px max-w-2xl mx-auto">
             <div className="bg-navy-mid p-10 text-center">
               <h3 className="font-display font-bold text-2xl mb-1 tracking-tight text-primary-foreground">United Kingdom</h3>
-              <p className="text-primary-foreground/50 text-sm">London, England</p>
+              <p className="text-primary-foreground/50 text-sm">National</p>
             </div>
             <div className="bg-navy-mid p-10 text-center">
               <h3 className="font-display font-bold text-2xl mb-1 tracking-tight text-primary-foreground">Australia</h3>
-              <p className="text-primary-foreground/50 text-sm">Brisbane, Queensland</p>
+              <p className="text-primary-foreground/50 text-sm">National</p>
             </div>
           </div>
         </div>
@@ -563,7 +563,7 @@ const Index = () => {
               "Building a multi-vertical, AI-enabled services platform across the United Kingdom."
             </blockquote>
             <p className="text-primary-foreground/50 text-sm">
-              From London to national — one acquisition at a time.
+              National reach — one acquisition at a time.
             </p>
           </div>
         </div>
