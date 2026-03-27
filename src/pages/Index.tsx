@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Building2, Layers, Cpu, TrendingUp, Check } from "lucide-react";
 import { useState } from "react";
 import { team } from "@/data/team";
+import heroBg from "@/assets/hero-bg.png";
 
 const pillars = [
   { icon: Building2, title: "Acquisition Strategy", desc: "We acquire anchor 'platform' businesses in target verticals — strong, well-run companies that become the foundation for disciplined buy-and-build growth." },
@@ -121,7 +122,10 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center pt-16 bg-card">
+      <section className="relative min-h-[90vh] flex items-center pt-16 bg-card overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src={heroBg} alt="" className="w-full h-full object-cover opacity-10" />
+        </div>
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="max-w-3xl">
             <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-6 animate-fade-in">
