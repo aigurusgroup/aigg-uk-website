@@ -45,15 +45,7 @@ const Markets = () => (
               <span className="text-[10px] font-medium tracking-[0.3em] uppercase text-muted-foreground">Core Market</span>
               <h2 className="font-display font-bold text-3xl mt-2 mb-1 tracking-tight">{market.name}</h2>
               <p className="text-sm text-muted-foreground mb-6">{market.hq} · Led by {market.lead}</p>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-8">{market.description}</p>
-              <div>
-                <span className="text-[10px] font-medium tracking-[0.2em] uppercase text-muted-foreground block mb-3">Target Sectors</span>
-                <div className="flex flex-wrap gap-2">
-                  {market.sectors.map((s) => (
-                    <span key={s} className="text-[10px] font-medium tracking-wide uppercase text-muted-foreground border border-border px-2.5 py-1">{s}</span>
-                  ))}
-                </div>
-              </div>
+              <p className="text-muted-foreground text-sm leading-relaxed">{market.description}</p>
             </div>
           ))}
         </div>
