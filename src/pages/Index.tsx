@@ -124,7 +124,7 @@ const Index = () => {
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center pt-16 bg-card overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src={heroBg} alt="" className="w-full h-full object-cover opacity-10" />
+          <img src={heroBg} alt="" className="w-full h-full object-cover opacity-30" />
         </div>
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="max-w-3xl">
