@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import logo from "@/assets/logo.png";
 
 const Footer = () => (
   <footer className="bg-navy py-16">
     <div className="container mx-auto px-4 lg:px-8">
       <div className="grid md:grid-cols-4 gap-10 mb-12">
         <div>
-          <span className="font-display font-bold text-lg text-primary-foreground tracking-tight">AIGG</span>
+          <img src={logo} alt="AI Gurus" className="h-10" />
           <p className="text-primary-foreground/50 text-sm mt-3 leading-relaxed">
             Multi-market platform acquiring, operating, and scaling AI-enabled service businesses.
           </p>
