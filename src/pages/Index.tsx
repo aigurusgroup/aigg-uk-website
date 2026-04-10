@@ -185,6 +185,8 @@ const Index = () => {
         </div>
       </section>
 
+      <TrackRecord />
+
       {/* How the Platform Works */}
       <section className="py-24 bg-navy text-primary-foreground">
         <div className="container mx-auto px-4 lg:px-8">
