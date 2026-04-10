@@ -7,6 +7,7 @@ export interface TeamMember {
   expertise: string[];
   initials: string;
   isLeadership?: boolean;
+  linkedin?: string;
 }
 
 export const team: TeamMember[] = [
@@ -19,6 +20,7 @@ export const team: TeamMember[] = [
     expertise: ["Technology Ventures & Exits", "AI & Automation Strategy", "Business Acquisition", "Operational Transformation"],
     initials: "CR",
     isLeadership: true,
+    linkedin: "https://www.linkedin.com/in/chris-robinson-979940b/",
   },
   {
     name: "Lee Robinson",
@@ -29,6 +31,7 @@ export const team: TeamMember[] = [
     expertise: ["Finance & Operations", "Buy-and-Build Strategy", "M&A Execution", "Portfolio Management"],
     initials: "LR",
     isLeadership: true,
+    linkedin: "https://www.linkedin.com/in/lee-robinson-9a769639/",
   },
   {
     name: "Geoffrey Erasmus",
@@ -38,6 +41,7 @@ export const team: TeamMember[] = [
     capability: "Technology expert with over 20 years of experience in software development, leading technical teams, and delivering enterprise solutions. Deep expertise in business intelligence, data warehousing, and AI-driven automation.",
     expertise: ["Enterprise Software Architecture", "AI & Business Intelligence", "Technical Leadership", "Data Engineering"],
     initials: "GE",
+    linkedin: "https://www.linkedin.com/in/geouffrey-erasmus-aa3a201/",
   },
   {
     name: "Loretto Burke",
@@ -47,6 +51,7 @@ export const team: TeamMember[] = [
     capability: "Finance executive with 20+ years' experience establishing financial control, governance, and reporting across complex organisations. Responsible for accounting, treasury, and financial governance across the portfolio.",
     expertise: ["Financial Control", "Due Diligence & Deal Support", "Treasury & Risk", "Statutory Reporting"],
     initials: "LB",
+    linkedin: "https://www.linkedin.com/in/loretto-burke-933693261/",
   },
   {
     name: "Michael Bradley",

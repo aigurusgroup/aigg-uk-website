@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import { team } from "@/data/team";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const About = () => (
@@ -70,7 +70,14 @@ const About = () => (
               <div className="w-11 h-11 rounded-full bg-primary/5 border border-border flex items-center justify-center mb-4">
                 <span className="text-xs font-display font-semibold text-muted-foreground">{person.initials}</span>
               </div>
-              <h3 className="font-display font-semibold text-base tracking-tight group-hover:text-primary transition-colors">{person.name}</h3>
+              <div className="flex items-center gap-3">
+                <h3 className="font-display font-semibold text-base tracking-tight group-hover:text-primary transition-colors">{person.name}</h3>
+                {person.linkedin && (
+                  <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[10px] font-medium tracking-wide uppercase text-primary hover:underline" onClick={(e) => e.stopPropagation()}>
+                    <Linkedin className="h-3.5 w-3.5" /> Connect
+                  </a>
+                )}
+              </div>
               <p className="text-[10px] tracking-widest uppercase text-muted-foreground mt-1">{person.market}</p>
               <div className="flex flex-wrap gap-1.5 mt-3">
                 {person.expertise.map((tag) => (
