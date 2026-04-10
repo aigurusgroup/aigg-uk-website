@@ -5,6 +5,7 @@ import { ArrowRight, Building2, Layers, Cpu, TrendingUp, Check } from "lucide-re
 import { useState } from "react";
 import { team } from "@/data/team";
 import heroBg from "@/assets/hero-bg.png";
+import TrackRecord from "@/components/TrackRecord";
 
 const pillars = [
   { icon: Building2, title: "Acquisition Strategy", desc: "We acquire anchor 'platform' businesses in target verticals — strong, well-run companies that become the foundation for disciplined buy-and-build growth." },
@@ -183,6 +184,8 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <TrackRecord />
 
       {/* How the Platform Works */}
       <section className="py-24 bg-navy text-primary-foreground">
