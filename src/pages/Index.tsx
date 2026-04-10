@@ -231,7 +231,7 @@ const Index = () => {
           </div>
           <div className="grid sm:grid-cols-2 gap-px bg-border">
             {[
-              { name: "National", location: "National", status: "Core Market" },
+              { name: "United Kingdom", location: "National", status: "Core Market" },
               { name: "Australia", location: "National", status: "Core Market" },
             ].map((m) => (
               <div key={m.name} className="bg-card p-10">
