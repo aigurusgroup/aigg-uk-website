@@ -231,7 +231,7 @@ const Index = () => {
           </div>
           <div className="grid sm:grid-cols-2 gap-px bg-border">
             {[
-              { name: "National", location: "National", status: "Core Market" },
+              { name: "United Kingdom", location: "National", status: "Core Market" },
               { name: "Australia", location: "National", status: "Core Market" },
             ].map((m) => (
               <div key={m.name} className="bg-card p-10">
@@ -265,6 +265,22 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Market Focus */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-2xl">
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">Market</p>
+            <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-6">
+              Market Focus
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              AIGG focuses on acquiring and scaling service businesses across key sectors,
+              applying AI-enabled systems and operational excellence to build lasting portfolio value
+              in the market.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Where We Focus */}
       <section className="py-24 bg-card">
