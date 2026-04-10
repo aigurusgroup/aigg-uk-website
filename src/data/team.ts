@@ -41,6 +41,7 @@ export const team: TeamMember[] = [
     capability: "Technology expert with over 20 years of experience in software development, leading technical teams, and delivering enterprise solutions. Deep expertise in business intelligence, data warehousing, and AI-driven automation.",
     expertise: ["Enterprise Software Architecture", "AI & Business Intelligence", "Technical Leadership", "Data Engineering"],
     initials: "GE",
+    linkedin: "https://www.linkedin.com/in/geouffrey-erasmus-aa3a201/",
   },
   {
     name: "Loretto Burke",
@@ -50,6 +51,7 @@ export const team: TeamMember[] = [
     capability: "Finance executive with 20+ years' experience establishing financial control, governance, and reporting across complex organisations. Responsible for accounting, treasury, and financial governance across the portfolio.",
     expertise: ["Financial Control", "Due Diligence & Deal Support", "Treasury & Risk", "Statutory Reporting"],
     initials: "LB",
+    linkedin: "https://www.linkedin.com/in/loretto-burke-933693261/",
   },
   {
     name: "Michael Bradley",
