@@ -22,7 +22,7 @@ const Header = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="AI Gurus" className="h-14" />
+          <img src={logo} alt="AI Gurus" className="h-8" />
           <span className="text-[10px] text-muted-foreground tracking-widest uppercase font-medium border-l border-border pl-3 mt-2">United Kingdom</span>
         </Link>
 
