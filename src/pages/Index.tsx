@@ -132,7 +132,7 @@ const Index = () => {
               Acquisitions · AI · Platform
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.08] mb-6 animate-fade-in-up tracking-tight">
-              Acquiring and Building AI-Enabled Businesses Across the United Kingdom
+              Acquiring Businesses Across the United Kingdom Using Flexible Deal Structures
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mb-10 animate-fade-in-up leading-relaxed" style={{ animationDelay: "0.1s" }}>
               We acquire, operate, and scale service businesses using AI, operational excellence, and disciplined capital.
@@ -175,6 +175,11 @@ const Index = () => {
                 <p className="text-muted-foreground text-sm leading-relaxed">{pillar.desc}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-16 pt-12 border-t border-border text-center">
+            <p className="font-display text-xl lg:text-2xl font-bold tracking-tight text-foreground">
+              "We don't sell AI — we use AI to build better businesses."
+            </p>
           </div>
         </div>
       </section>
