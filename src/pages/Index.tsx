@@ -265,22 +265,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* UK Market Focus */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-2xl">
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground mb-3">UK Market</p>
-            <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-6">
-              United Kingdom Market Focus
-            </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              AIGG United Kingdom focuses on acquiring and scaling service businesses across key sectors,
-              applying AI-enabled systems and operational excellence to build lasting portfolio value
-              in the UK market.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* Where We Focus */}
       <section className="py-24 bg-card">
