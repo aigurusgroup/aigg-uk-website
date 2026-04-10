@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Building2, Layers, Cpu, TrendingUp, Check } from "lucide-react";
+import { ArrowRight, Building2, Layers, Cpu, TrendingUp, Check, Linkedin } from "lucide-react";
 import { useState } from "react";
 import { team } from "@/data/team";
 import heroBg from "@/assets/hero-bg.png";
@@ -486,7 +486,14 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-6">
             {team.map((leader) => (
               <div key={leader.name} className="border border-border bg-card p-8">
-                <h3 className="font-display font-bold text-lg tracking-tight mb-1">{leader.name}</h3>
+                <div className="flex items-center gap-3">
+                  <h3 className="font-display font-bold text-lg tracking-tight mb-1">{leader.name}</h3>
+                  {leader.linkedin && (
+                    <a href={leader.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[10px] font-medium tracking-wide uppercase text-primary hover:underline -mt-1" onClick={(e) => e.stopPropagation()}>
+                      <Linkedin className="h-3.5 w-3.5" /> Connect
+                    </a>
+                  )}
+                </div>
                 <p className="text-xs tracking-widest uppercase text-muted-foreground mb-4">{leader.role} — {leader.market}</p>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-5">{leader.capability}</p>
                 <div className="flex flex-wrap gap-2">
@@ -513,7 +520,14 @@ const Index = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {team.map((op) => (
               <div key={op.name} className="border border-border bg-background p-8 flex flex-col">
-                <h3 className="font-display font-bold text-lg tracking-tight mb-3">{op.name}</h3>
+                <div className="flex items-center gap-3 mb-3">
+                  <h3 className="font-display font-bold text-lg tracking-tight">{op.name}</h3>
+                  {op.linkedin && (
+                    <a href={op.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[10px] font-medium tracking-wide uppercase text-primary hover:underline">
+                      <Linkedin className="h-3.5 w-3.5" /> Connect
+                    </a>
+                  )}
+                </div>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {op.expertise.map((tag) => (
                     <span
