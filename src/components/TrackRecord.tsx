@@ -52,7 +52,7 @@ const TrackRecord = () => (
         ))}
       </div>
 
-      <p className="text-center text-foreground italic max-w-3xl mx-auto mb-16">
+      <p className="text-center text-foreground italic font-bold max-w-3xl mx-auto mb-16">
         "We combine hands-on operational experience with disciplined acquisition strategy — giving business owners confidence that their business is in the right hands."
       </p>
 
