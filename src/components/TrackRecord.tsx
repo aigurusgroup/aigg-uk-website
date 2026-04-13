@@ -1,10 +1,16 @@
-import { CheckCircle2 } from "lucide-react";
+import { Award, Users, Cpu, CheckCircle2 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 const metrics = [
   { value: "25+", label: "Transactions Led" },
   { value: "£152M+", label: "Transaction Value Delivered" },
   { value: "20+", label: "Years Operator Experience" },
+];
+
+const awards = [
+  { icon: Award, label: "Customer Service Awards" },
+  { icon: Users, label: "Investors in People" },
+  { icon: Cpu, label: "Best New Technology" },
 ];
 
 const sellerPoints = [
@@ -28,7 +34,7 @@ const TrackRecord = () => (
         </p>
       </div>
 
-      <div className="grid sm:grid-cols-3 gap-px bg-border mb-10">
+      <div className="grid sm:grid-cols-3 gap-px bg-border mb-px">
         {metrics.map((m) => (
           <div key={m.label} className="bg-background p-10 text-center">
             <p className="font-display font-bold text-4xl tracking-tight mb-1">{m.value}</p>
@@ -37,7 +43,16 @@ const TrackRecord = () => (
         ))}
       </div>
 
-      <p className="text-center text-muted-foreground italic max-w-3xl mx-auto mb-16">
+      <div className="grid sm:grid-cols-3 gap-px bg-border mb-10">
+        {awards.map((a) => (
+          <div key={a.label} className="bg-background p-8 flex flex-col items-center text-center">
+            <a.icon className="text-primary mb-4" size={28} />
+            <p className="font-display font-bold text-sm tracking-tight">{a.label}</p>
+          </div>
+        ))}
+      </div>
+
+      <p className="text-center text-primary italic max-w-3xl mx-auto mb-16">
         "We combine hands-on operational experience with disciplined acquisition strategy — giving business owners confidence that their business is in the right hands."
       </p>
 
