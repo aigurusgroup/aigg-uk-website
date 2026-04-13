@@ -61,6 +61,7 @@ export const team: TeamMember[] = [
     capability: "Operator, investor, and business builder with a track record spanning more than 45 years across construction, home-improvement, and property services sectors.",
     expertise: ["Property Services", "Operator-Led Scaling", "Acquisition Judgement", "Multi-Model Operations"],
     initials: "MB",
+    linkedin: "https://www.linkedin.com/in/michaeljbradley111",
   },
 ];
 
