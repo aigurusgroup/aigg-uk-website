@@ -35,7 +35,7 @@ const Footer = () => (
           <h4 className="text-primary-foreground/80 font-medium text-xs tracking-widest uppercase mb-4">Contact</h4>
           <div className="flex flex-col gap-2">
             <span className="text-primary-foreground/50 text-sm">United Kingdom</span>
-            <a href="mailto:info@aigg.co.uk" className="text-primary-foreground/50 hover:text-primary-foreground text-sm transition-colors">info@aigg.co.uk</a>
+            <a href="mailto:info@aigurusgroup.com" className="text-primary-foreground/50 hover:text-primary-foreground text-sm transition-colors">info@aigurusgroup.com</a>
           </div>
         </div>
       </div>
