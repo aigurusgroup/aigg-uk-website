@@ -404,7 +404,7 @@ const Index = () => {
               <ul className="space-y-2 text-left max-w-md mx-auto">
                 {[
                   "Confidential discussions from day one",
-                  "Flexible deal structures — earnouts, partial exits, full exits",
+                  "Flexible deal structures - earnouts, partial exits, full exits",
                   "Legacy protection for your team and customers",
                   "Continued growth support post-acquisition",
                 ].map((item) => (
