@@ -3,7 +3,7 @@ import { Separator } from "@/components/ui/separator";
 
 const metrics = [
   { value: "25+", label: "Transactions Led" },
-  { value: "£152M+", label: "Transaction Value Delivered" },
+  { value: "£168M+", label: "Transaction Value Delivered" },
   { value: "20+", label: "Years Operator Experience" },
 ];
 
