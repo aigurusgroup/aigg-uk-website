@@ -133,10 +133,10 @@ const Index = () => {
               Acquisitions · AI · Platform
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.08] mb-6 animate-fade-in-up tracking-tight">
-              Acquiring Businesses Across the United Kingdom Using Flexible Deal Structures
+              We Don't Just Buy Businesses. We Build on What You've Created.
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mb-10 animate-fade-in-up leading-relaxed" style={{ animationDelay: "0.1s" }}>
-              We acquire, operate, and scale service businesses using AI, operational excellence, and disciplined capital.
+              Partner-led acquisitions designed to scale your business while protecting your people, clients, and legacy.
             </p>
             <div className="flex flex-wrap gap-3 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
               <Link to="/sell">
