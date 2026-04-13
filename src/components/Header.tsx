@@ -7,7 +7,7 @@ import logo from "@/assets/logo.png";
 const navLinks = [
   { label: "Platform", href: "/platform" },
   { label: "Markets", href: "/markets" },
-  { label: "Perspectives", href: "/perspectives" },
+  { label: "Knowledge Centre", href: "/perspectives" },
   { label: "Sell Your Business", href: "/sell" },
   { label: "Investors", href: "/investors" },
   { label: "About", href: "/about" },
