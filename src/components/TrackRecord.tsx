@@ -56,9 +56,9 @@ const TrackRecord = () => (
         "We combine hands-on operational experience with disciplined acquisition strategy — giving business owners confidence that their business is in the right hands."
       </p>
 
-      <Separator className="max-w-3xl mx-auto mb-16" />
+      <Separator className="mb-16" />
 
-      <div className="max-w-3xl mx-auto">
+      <div>
         <h3 className="text-2xl font-display font-bold tracking-tight mb-8">
           What this means for business owners
         </h3>
