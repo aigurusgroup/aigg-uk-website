@@ -10,6 +10,7 @@ const navLinks = [
   { label: "Knowledge Centre", href: "/perspectives" },
   { label: "Sell Your Business", href: "/sell" },
   { label: "Investors", href: "/investors" },
+  { label: "FAQ", href: "/faq" },
   { label: "About", href: "/about" },
 ];
 
