@@ -345,7 +345,7 @@ const FAQ = () => {
               <Button asChild className="bg-[hsl(var(--accent-blue))] hover:bg-[hsl(var(--accent-blue))]/90 text-white px-8 py-3 rounded-lg">
                 <Link to="/sell">Sell Your Business</Link>
               </Button>
-              <Button asChild variant="outline" className="border-white/30 text-white hover:bg-white/10 px-8 py-3 rounded-lg">
+              <Button asChild variant="outline" className="border-white/30 text-white hover:bg-white hover:text-foreground px-8 py-3 rounded-lg">
                 <Link to="/investors">Investor Enquiry</Link>
               </Button>
             </div>
