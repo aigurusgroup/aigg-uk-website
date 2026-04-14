@@ -249,9 +249,9 @@ const FAQ = () => {
                     {item.q}
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
-                    {item.a}
+                    <p>{item.a}</p>
                     {item.related && (
-                      <Link to={item.related.href} className="inline-flex items-center gap-1 mt-3 text-sm font-medium text-[hsl(var(--accent-blue))] hover:underline">
+                      <Link to={item.related.href} className="flex items-center gap-1 mt-3 text-sm font-medium text-[hsl(var(--accent-blue))] hover:underline">
                         {item.related.label} <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                     )}
