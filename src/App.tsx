@@ -12,6 +12,7 @@ import SellYourBusiness from "./pages/SellYourBusiness";
 import Investors from "./pages/Investors";
 import About from "./pages/About";
 import DealSources from "./pages/DealSources";
+import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/investors" element={<Investors />} />
           <Route path="/about" element={<About />} />
           <Route path="/deal-sources" element={<DealSources />} />
+          <Route path="/faq" element={<FAQ />} />
           {/* Legacy redirects */}
           <Route path="/global" element={<Markets />} />
           <Route path="*" element={<NotFound />} />
