@@ -133,7 +133,7 @@ const Index = () => {
               Acquisitions · AI · Platform
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-display font-bold leading-[1.08] mb-6 animate-fade-in-up tracking-tight">
-              We Buy Businesses and Build on What You've Created.
+              WE BUY BUSINESSES AND BUILD ON WHAT YOU'VE CREATED.
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mb-10 animate-fade-in-up leading-relaxed" style={{ animationDelay: "0.1s" }}>
               Operator-led acquisitions designed to scale your business while protecting your people, clients, and legacy.
