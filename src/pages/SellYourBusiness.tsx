@@ -55,6 +55,16 @@ const SellYourBusiness = () => {
     revenue: "", ebitda: "", location: "", ownership: "", timeframe: "", notes: "",
   });
 
+  useEffect(() => {
+    const scriptId = "ghl-form-embed-script";
+    if (document.getElementById(scriptId)) return;
+    const script = document.createElement("script");
+    script.id = scriptId;
+    script.src = "https://crm.aigurusgroup.com/js/form_embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const result = formSchema.safeParse(formData);
