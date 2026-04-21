@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { ArrowRight, Check, Shield, Layers, Cpu, Settings } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 
@@ -54,6 +54,16 @@ const SellYourBusiness = () => {
     name: "", email: "", phone: "", businessName: "", industry: "",
     revenue: "", ebitda: "", location: "", ownership: "", timeframe: "", notes: "",
   });
+
+  useEffect(() => {
+    const scriptId = "ghl-form-embed-script";
+    if (document.getElementById(scriptId)) return;
+    const script = document.createElement("script");
+    script.id = scriptId;
+    script.src = "https://crm.aigurusgroup.com/js/form_embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -292,6 +302,40 @@ const SellYourBusiness = () => {
                 <p className="text-primary-foreground/40 text-xs">We typically respond within 24–48 hours.</p>
               </div>
             </form>
+          </div>
+        </div>
+      </section>
+
+      {/* GoHighLevel Embedded Form */}
+      <section id="ghl-form" className="py-24 bg-navy text-primary-foreground border-t border-primary-foreground/10">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-2xl mx-auto">
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-primary-foreground/50 mb-3">Direct Enquiry</p>
+            <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-3">
+              Submit Your Details
+            </h2>
+            <p className="text-primary-foreground/60 text-sm mb-10">
+              Complete the form below and a member of our team will be in touch.
+            </p>
+            <div className="bg-navy-mid border border-primary-foreground/15 rounded-lg p-2 sm:p-4">
+              <iframe
+                src="https://crm.aigurusgroup.com/widget/form/6WplSKp2zDtAHqjlbCHN"
+                style={{ width: "100%", height: "1423px", border: "none", borderRadius: "8px" }}
+                id="inline-6WplSKp2zDtAHqjlbCHN"
+                data-layout='{"id":"INLINE"}'
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Form 0"
+                data-height="1423"
+                data-layout-iframe-id="inline-6WplSKp2zDtAHqjlbCHN"
+                data-form-id="6WplSKp2zDtAHqjlbCHN"
+                title="Form 0"
+              />
+            </div>
           </div>
         </div>
       </section>
