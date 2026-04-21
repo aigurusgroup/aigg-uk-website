@@ -317,25 +317,23 @@ const SellYourBusiness = () => {
             <p className="text-primary-foreground/60 text-sm mb-10">
               Complete the form below and a member of our team will be in touch.
             </p>
-            <div className="bg-navy-mid border border-primary-foreground/15 rounded-lg p-2 sm:p-4">
-              <iframe
-                src="https://crm.aigurusgroup.com/widget/form/6WplSKp2zDtAHqjlbCHN"
-                style={{ width: "100%", height: "1423px", border: "none", borderRadius: "8px" }}
-                id="inline-6WplSKp2zDtAHqjlbCHN"
-                data-layout='{"id":"INLINE"}'
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Form 0"
-                data-height="1423"
-                data-layout-iframe-id="inline-6WplSKp2zDtAHqjlbCHN"
-                data-form-id="6WplSKp2zDtAHqjlbCHN"
-                title="Form 0"
-              />
-            </div>
+            <iframe
+              src="https://crm.aigurusgroup.com/widget/form/6WplSKp2zDtAHqjlbCHN"
+              style={{ width: "100%", height: "1423px", border: "none", borderRadius: "8px" }}
+              id="inline-6WplSKp2zDtAHqjlbCHN"
+              data-layout='{"id":"INLINE"}'
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Form 0"
+              data-height="1423"
+              data-layout-iframe-id="inline-6WplSKp2zDtAHqjlbCHN"
+              data-form-id="6WplSKp2zDtAHqjlbCHN"
+              title="Form 0"
+            />
           </div>
         </div>
       </section>
