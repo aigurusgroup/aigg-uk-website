@@ -1,12 +1,7 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { ArrowRight, Check, Shield, Layers, Cpu, Settings } from "lucide-react";
-import { useState, useEffect } from "react";
-import { useToast } from "@/hooks/use-toast";
-import { z } from "zod";
+import { ArrowRight, Shield, Layers, Cpu, Settings } from "lucide-react";
+import { useEffect } from "react";
 
 const whyPillars = [
   { icon: Shield, title: "Long-Term Focus", description: "We acquire to build — not to flip. Our model is centred on sustainable growth and long-term value creation." },
