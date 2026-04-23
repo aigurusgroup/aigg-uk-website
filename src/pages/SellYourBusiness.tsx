@@ -24,32 +24,7 @@ const lookingFor = [
   "Growth opportunity",
 ];
 
-const revenueOptions = ["Under £500K", "£500K – £1M", "£1M – £3M", "£3M – £5M", "£5M – £10M", "£10M+"];
-const ebitdaOptions = ["Under £100K", "£100K – £250K", "£250K – £500K", "£500K – £1M", "£1M+"];
-const timeframeOptions = ["Immediately", "3–6 months", "6–12 months", "12+ months", "Just exploring"];
-
-const formSchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100),
-  email: z.string().trim().email("Invalid email address").max(255),
-  phone: z.string().trim().max(30).optional(),
-  businessName: z.string().trim().max(200).optional(),
-  industry: z.string().trim().max(100).optional(),
-  revenue: z.string().optional(),
-  ebitda: z.string().optional(),
-  location: z.string().trim().max(200).optional(),
-  ownership: z.string().trim().max(20).optional(),
-  timeframe: z.string().optional(),
-  notes: z.string().trim().max(2000).optional(),
-});
-
 const SellYourBusiness = () => {
-  const { toast } = useToast();
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [formData, setFormData] = useState({
-    name: "", email: "", phone: "", businessName: "", industry: "",
-    revenue: "", ebitda: "", location: "", ownership: "", timeframe: "", notes: "",
-  });
-
   useEffect(() => {
     const scriptId = "ghl-form-embed-script";
     if (document.getElementById(scriptId)) return;
@@ -59,27 +34,6 @@ const SellYourBusiness = () => {
     script.async = true;
     document.body.appendChild(script);
   }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const result = formSchema.safeParse(formData);
-    if (!result.success) {
-      const fieldErrors: Record<string, string> = {};
-      result.error.errors.forEach(err => {
-        if (err.path[0]) fieldErrors[err.path[0] as string] = err.message;
-      });
-      setErrors(fieldErrors);
-      return;
-    }
-    setErrors({});
-    toast({ title: "Submission received", description: "We'll be in touch within 24–48 hours for a confidential discussion." });
-    setFormData({ name: "", email: "", phone: "", businessName: "", industry: "", revenue: "", ebitda: "", location: "", ownership: "", timeframe: "", notes: "" });
-  };
-
-  const updateField = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-    if (errors[field]) setErrors(prev => ({ ...prev, [field]: "" }));
-  };
 
   return (
     <Layout>
@@ -218,100 +172,6 @@ const SellYourBusiness = () => {
               All discussions are private and handled with discretion.
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Name *</Label>
-                  <Input className="mt-1.5 bg-navy-mid border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30" required value={formData.name} onChange={e => updateField("name", e.target.value)} />
-                  {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
-                </div>
-                <div>
-                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Email *</Label>
-                  <Input className="mt-1.5 bg-navy-mid border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30" type="email" required value={formData.email} onChange={e => updateField("email", e.target.value)} />
-                  {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
-                </div>
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Phone</Label>
-                  <Input className="mt-1.5 bg-navy-mid border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30" value={formData.phone} onChange={e => updateField("phone", e.target.value)} />
-                </div>
-                <div>
-                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Business Name</Label>
-                  <Input className="mt-1.5 bg-navy-mid border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30" value={formData.businessName} onChange={e => updateField("businessName", e.target.value)} />
-                </div>
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Industry</Label>
-                  <Input className="mt-1.5 bg-navy-mid border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30" value={formData.industry} onChange={e => updateField("industry", e.target.value)} />
-                </div>
-                <div>
-                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Location</Label>
-                  <Input className="mt-1.5 bg-navy-mid border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30" value={formData.location} onChange={e => updateField("location", e.target.value)} />
-                </div>
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Revenue Range</Label>
-                  <select className="mt-1.5 w-full h-10 rounded-md border border-primary-foreground/15 bg-navy-mid px-3 text-sm text-primary-foreground" value={formData.revenue} onChange={e => updateField("revenue", e.target.value)}>
-                    <option value="">Select...</option>
-                    {revenueOptions.map(o => <option key={o} value={o}>{o}</option>)}
-                  </select>
-                </div>
-                <div>
-                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">EBITDA Range</Label>
-                  <select className="mt-1.5 w-full h-10 rounded-md border border-primary-foreground/15 bg-navy-mid px-3 text-sm text-primary-foreground" value={formData.ebitda} onChange={e => updateField("ebitda", e.target.value)}>
-                    <option value="">Select...</option>
-                    {ebitdaOptions.map(o => <option key={o} value={o}>{o}</option>)}
-                  </select>
-                </div>
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Ownership % Available</Label>
-                  <Input className="mt-1.5 bg-navy-mid border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30" value={formData.ownership} onChange={e => updateField("ownership", e.target.value)} />
-                </div>
-                <div>
-                  <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Timeline</Label>
-                  <select className="mt-1.5 w-full h-10 rounded-md border border-primary-foreground/15 bg-navy-mid px-3 text-sm text-primary-foreground" value={formData.timeframe} onChange={e => updateField("timeframe", e.target.value)}>
-                    <option value="">Select...</option>
-                    {timeframeOptions.map(o => <option key={o} value={o}>{o}</option>)}
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <Label className="text-xs font-medium tracking-wide uppercase text-primary-foreground/60">Notes</Label>
-                <Textarea className="mt-1.5 bg-navy-mid border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30" rows={4} placeholder="Anything else you'd like us to know..." value={formData.notes} onChange={e => updateField("notes", e.target.value)} />
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                <Button variant="premium" size="lg" type="submit">
-                  Submit Confidentially <ArrowRight className="ml-1" size={14} />
-                </Button>
-                <p className="text-primary-foreground/40 text-xs">We typically respond within 24–48 hours.</p>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      {/* GoHighLevel Embedded Form */}
-      <section id="ghl-form" className="py-24 bg-navy text-primary-foreground border-t border-primary-foreground/10">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-2xl mx-auto">
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-primary-foreground/50 mb-3">Direct Enquiry</p>
-            <h2 className="text-3xl lg:text-4xl font-display font-bold tracking-tight mb-3">
-              Submit Your Details
-            </h2>
-            <p className="text-primary-foreground/60 text-sm mb-10">
-              Complete the form below and a member of our team will be in touch.
-            </p>
             <iframe
               src="https://crm.aigurusgroup.com/widget/form/6WplSKp2zDtAHqjlbCHN"
               style={{ width: "100%", height: "1423px", border: "none", borderRadius: "8px" }}
